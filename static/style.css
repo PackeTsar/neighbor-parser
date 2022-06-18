@@ -1,0 +1,18 @@
+textarea
+{
+   font-family: "Monaco", monospace !important;
+}
+.dropdown-item{
+    margin-top: 3px;
+    margin-bottom: 3px;
+    border-style: solid !important;
+    border-width: 1px !important;
+    border-color: #212529 !important;
+}
+.dropdown-item.active{
+    background-color: #6c757d !important;
+    box-shadow: inset 0px 0px 5px #000000;
+}
+.dropdown-item.active:hover{
+    background-color: #495057 !important;
+}
