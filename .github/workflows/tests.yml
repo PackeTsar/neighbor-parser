@@ -11,11 +11,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Install Dependencies
+    - name: Install dependencies
       run: npm install --include=dev
-    - name: Run Tests
+    - name: Run tests
       run: npm test
-    - name: Lint Source
+    - name: Lint source
       run: npx eslint src/
-    - name: Generate Dist Code
+    - name: Generate dist code
       run: npx webpack
+    - name: Check for 100% test coverage
+      run: c8 --100 npm test

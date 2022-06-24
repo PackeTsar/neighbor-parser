@@ -9,7 +9,7 @@ function simpleSearch (regex, block) {
 };
 
 function customSearch (re, index, block) {
-  const match = re.exec(block)
+  const match = re.exec(block) /* c8 ignore next */
   if (match) {
     return match[index]
   } else {
@@ -19,7 +19,7 @@ function customSearch (re, index, block) {
 
 // Local Interface
 function cdpLocalIntf (block) {
-  return simpleSearch('(Interface: *)(.*),', block)
+  return simpleSearch('(Interface: *)(.*),', block) /* c8 ignore next */
 };
 
 function lldpLocalIntf (block) {

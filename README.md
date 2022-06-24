@@ -10,3 +10,5 @@ CDP and LLDP Neighbor Parser
  - Install dependencies with `npm install --dev` or `npm install --also=dev`
  - Run tests with `npm test`
  - Lint with `npx eslint ./src`
+ - Check for 100% code coverage: `c8 --100 npm test`
+ - Generate coverage report: `c8 report --reporter html`
