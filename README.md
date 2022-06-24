@@ -1,4 +1,7 @@
-# neighbor-parser
+# Neighbor Parser
+
+[![Build Status](https://github.com/PackeTsar/neighbor-parser/actions/workflows/tests.yml/badge.svg)](https://github.com/PackeTsar/neighbor-parser/actions/workflows/tests.yml)
+
 CDP and LLDP Neighbor Parser
 
 
