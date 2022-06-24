@@ -19,5 +19,7 @@ jobs:
       run: npx eslint src/
     - name: Generate dist code
       run: npx webpack
+    - name: Install c8
+      run: npm install c8 -g
     - name: Check for 100% test coverage
       run: c8 --100 npm test
