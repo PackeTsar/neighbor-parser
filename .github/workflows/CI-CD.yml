@@ -20,6 +20,7 @@ jobs:
       run: c8 --100 npm test
   build:
     runs-on: ubuntu-latest
+    needs: test
     steps:
     - uses: actions/checkout@v2
     - name: Delete dist code
