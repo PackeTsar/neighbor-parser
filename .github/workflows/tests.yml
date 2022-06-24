@@ -1,0 +1,19 @@
+name: CI Testing
+on:
+  push:
+    branches: [ '**' ]
+  pull_request:
+    branches: [ '**' ]
+  schedule:
+    - cron: '22 13 * * *'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Change Dir
+      run: cd static/neighbors/
+    - name: Run Tests
+      run: npm test
+    - name: Lint Source
+      run: npx eslint ./src
