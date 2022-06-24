@@ -6,7 +6,7 @@ test('Get localintf from WAP block', () => {
 })
 
 test('Get sysname from WAP block', () => {
-  expect(getAttrib.cdpSysName(sample.sample)).toBe('WAPNAME')
+  expect(getAttrib.cdpSysName(sample.sample)).toBe('WAPNAME1')
 })
 
 test('Get remoteintf from WAP block', () => {
