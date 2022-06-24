@@ -1,2 +1,2 @@
-static/neighbors/node_modules
-static/neighbors/package-lock.json
+node_modules
+package-lock.json
