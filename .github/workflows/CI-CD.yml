@@ -1,13 +1,10 @@
-name: CI Testing
+name: CI/CD Testing and Deployment
 on:
   push:
-    branches: [ '**' ]
-  pull_request:
-    branches: [ '**' ]
-  schedule:
-    - cron: '22 13 * * *'
+    branches:
+      - main
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -17,9 +14,15 @@ jobs:
       run: npm test
     - name: Lint source
       run: npx eslint src/
-    - name: Generate dist code
-      run: npx webpack
     - name: Install c8
       run: npm install c8 -g
     - name: Check for 100% test coverage
       run: c8 --100 npm test
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Delete dist code
+      run: rm -f dist/static/neighbors/bundle.js
+    - name: Generate dist code
+      run: npx webpack
