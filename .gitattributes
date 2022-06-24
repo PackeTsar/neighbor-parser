@@ -1,0 +1,3 @@
+dist/static/bootstrap/** linguist-vendored
+dist/static/DataTables/** linguist-vendored
+dist/static/fontawesome/** linguist-vendored
