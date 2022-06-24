@@ -12,8 +12,10 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Install Dependencies
-      run: npm install --also=dev
+      run: npm install --include=dev
     - name: Run Tests
       run: npm test
     - name: Lint Source
-      run: npx eslint static/neighbors/src
+      run: npx eslint src/
+    - name: Generate Dist Code
+      run: npx webpack

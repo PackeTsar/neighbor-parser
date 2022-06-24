@@ -1,8 +1,7 @@
 module.exports = {
   env: {
     browser: true,
-    commonjs: true,
-    es2021: true
+    commonjs: true
   },
   extends: [
     'standard'
@@ -11,6 +10,7 @@ module.exports = {
     ecmaVersion: 'latest'
   },
   rules: {
+    strict: 2
   },
   overrides: [
     {

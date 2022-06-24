@@ -10,7 +10,7 @@ function detect (block) {
   } else if (block.match(/System Name:/)) {
     return 'lldp'
   } else {
-    return null
+    return null;
   };
 };
 
