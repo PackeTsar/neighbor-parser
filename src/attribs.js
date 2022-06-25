@@ -110,7 +110,7 @@ function lldpSysCap (block) {
 function cdpAddresses (block) {
   const match = block.match(/(?<=(IP|IPv4|IPv6) (A|a)ddress: )(\S*)/gm)
   if (match) {
-    return match
+    return [...new Set(match)] // Dedupe and return the array
   } else {
     return []
   }
@@ -119,7 +119,7 @@ function cdpAddresses (block) {
 function lldpAddresses (block) {
   const match = block.match(/(?<=(Management Address|IP|IPV6): )(\S*)/gm)
   if (match) {
-    return match
+    return [...new Set(match)] // Dedupe and return the array
   } else {
     return []
   }
