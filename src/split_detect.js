@@ -6,9 +6,9 @@ function split (block) {
 
 function detect (block) {
   if (block.match(/Platform:/)) {
-    return 'cdp'
+    return 'CDP'
   } else if (block.match(/System Name:/)) {
-    return 'lldp'
+    return 'LLDP'
   } else {
     return null
   };
@@ -16,7 +16,7 @@ function detect (block) {
 
 function splitDetect (block) {
   const blocks = split(block)
-  // Map the blocks array to an array of objects like [{type: "cdp", data: ...}]
+  // Map the blocks array to an array of objects like [{type: "CDP", data: ...}]
   return blocks.map(block => ({ type: detect(block), data: block }))
 };
 

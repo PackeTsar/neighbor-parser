@@ -126,7 +126,7 @@ function lldpAddresses (block) {
 };
 
 const funcMap = {
-  cdp: {
+  CDP: {
     localIntf: cdpLocalIntf,
     sysName: cdpSysName,
     remoteIntf: cdpRemoteIntf,
@@ -138,7 +138,7 @@ const funcMap = {
     sysCap: cdpSysCap,
     addresses: cdpAddresses
   },
-  lldp: {
+  LLDP: {
     localIntf: lldpLocalIntf,
     sysName: lldpSysName,
     remoteIntf: lldpRemoteIntf,

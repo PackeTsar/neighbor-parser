@@ -8,8 +8,8 @@ test('Split sample LLDP output into blocks and detect each block type', () => {
   // Map the array of blocks to an array of detected types and check the result
   const types = blocks.map(block => split.detect(block))
   expect(types).toStrictEqual([
-    null, 'lldp', 'lldp',
-    'lldp', 'lldp', 'lldp',
-    'lldp', null
+    null, 'LLDP', 'LLDP',
+    'LLDP', 'LLDP', 'LLDP',
+    'LLDP', null
   ])
 })

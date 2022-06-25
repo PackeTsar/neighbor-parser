@@ -3,7 +3,7 @@ const sample = require('./samples/mixed_ios_multiple')
 
 test('Fully parse interspersed neighbor blocks', () => {
   const neighborObjs = neighbors.getNeighbors(sample.interspersedSample)
-  expect(neighborObjs[0].type).toBe('lldp')
+  expect(neighborObjs[0].type).toBe('LLDP')
   expect(neighborObjs[1].localIntf).toBe('Gi1/0/10')
   expect(neighborObjs[2].sysName).toBe('STOR02-ct1')
   expect(neighborObjs[3].remoteIntf).toBe('eth0')
@@ -13,5 +13,5 @@ test('Fully parse interspersed neighbor blocks', () => {
   expect(neighborObjs[7].sysId).toBe(null)
   expect(neighborObjs[8].sysCap).toBe('Router Switch IGMP CVTA phone port')
   expect(neighborObjs[8].addresses).toStrictEqual(['10.0.16.3'])
-  expect(neighborObjs[9].type).toBe('cdp')
+  expect(neighborObjs[9].type).toBe('CDP')
 })

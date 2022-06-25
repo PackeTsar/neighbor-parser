@@ -10,6 +10,7 @@ $(document).ready(function () {
     for (let i = 0; i < neighborObjs.length; i++) {
       neighborObjs[i].num = i + 1
       neighborObjs[i].addresses = neighborObjs[i].addresses.join(', ')
+      console.log(neighborObjs[i])
       table.row.add(neighborObjs[i])
     };
     table.draw()

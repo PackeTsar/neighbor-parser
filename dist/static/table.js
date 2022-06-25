@@ -7,6 +7,7 @@ $(document).ready(function () {
     colReorder: true,
     columns: [
       { data: 'num' },
+      { data: 'type' },
       { data: 'localIntf' },
       { data: 'sysName' },
       { data: 'remoteIntf' },
@@ -41,6 +42,7 @@ $(document).ready(function () {
   }).container().appendTo($('#control_buttons'))
   table.row.add({
     num: '1',
+    type: 'CDP',
     localIntf: 'GigabitEthernet1/0/1',
     sysName: 'WAP1',
     remoteIntf: 'GigabitEthernet0',
@@ -54,6 +56,7 @@ $(document).ready(function () {
   })
   table.row.add({
     num: '2',
+    type: 'CDP',
     localIntf: 'GigabitEthernet1/0/2',
     sysName: 'WAP2',
     remoteIntf: 'GigabitEthernet0',

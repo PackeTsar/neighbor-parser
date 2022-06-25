@@ -8,13 +8,13 @@ test('Split sample appended CDP+LLDP output into blocks and detect each block ty
   // Map the array of blocks to an array of detected types and check the result
   const types = blocks.map(block => split.detect(block))
   expect(types).toStrictEqual([
-    null, 'cdp', 'cdp',
-    'cdp', 'cdp', 'cdp',
-    'cdp', 'cdp', 'cdp',
-    'cdp', 'cdp', 'cdp',
-    null, 'lldp', 'lldp',
-    'lldp', 'lldp', 'lldp',
-    'lldp', null
+    null, 'CDP', 'CDP',
+    'CDP', 'CDP', 'CDP',
+    'CDP', 'CDP', 'CDP',
+    'CDP', 'CDP', 'CDP',
+    null, 'LLDP', 'LLDP',
+    'LLDP', 'LLDP', 'LLDP',
+    'LLDP', null
   ])
 })
 
@@ -25,24 +25,24 @@ test('Split sample interspersed CDP+LLDP output into blocks and detect each bloc
   // Map the array of blocks to an array of detected types and check the result
   const types = blocks.map(block => split.detect(block))
   expect(types).toStrictEqual([
-    null, 'lldp', 'lldp',
-    'lldp', 'lldp', 'lldp',
-    'lldp', null, 'cdp',
-    'cdp', 'cdp', 'cdp',
-    'cdp', 'cdp', 'cdp',
-    'cdp', 'cdp', 'cdp',
-    'cdp', null, 'lldp',
-    'lldp', 'lldp', 'lldp',
-    'lldp', 'lldp', null,
-    'cdp', 'cdp', 'cdp',
-    'cdp', 'cdp', 'cdp',
-    'cdp', 'cdp', 'cdp',
-    'cdp', 'cdp', null
+    null, 'LLDP', 'LLDP',
+    'LLDP', 'LLDP', 'LLDP',
+    'LLDP', null, 'CDP',
+    'CDP', 'CDP', 'CDP',
+    'CDP', 'CDP', 'CDP',
+    'CDP', 'CDP', 'CDP',
+    'CDP', null, 'LLDP',
+    'LLDP', 'LLDP', 'LLDP',
+    'LLDP', 'LLDP', null,
+    'CDP', 'CDP', 'CDP',
+    'CDP', 'CDP', 'CDP',
+    'CDP', 'CDP', 'CDP',
+    'CDP', 'CDP', null
   ])
 })
 
 test('Split and detect to array of objects', () => {
   const result = split.cleanArray(split.splitDetect(sample.appendedSample))
-  expect(result[0].type).toBe('cdp')
-  expect(result[15].type).toBe('lldp')
+  expect(result[0].type).toBe('CDP')
+  expect(result[15].type).toBe('LLDP')
 })

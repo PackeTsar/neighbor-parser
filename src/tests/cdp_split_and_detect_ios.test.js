@@ -8,10 +8,10 @@ test('Split sample CDP output into blocks and detect each block type', () => {
   // Map the array of blocks to an array of detected types and check the result
   const types = blocks.map(block => split.detect(block))
   expect(types).toStrictEqual([
-    null, 'cdp', 'cdp',
-    'cdp', 'cdp', 'cdp',
-    'cdp', 'cdp', 'cdp',
-    'cdp', 'cdp', 'cdp',
+    null, 'CDP', 'CDP',
+    'CDP', 'CDP', 'CDP',
+    'CDP', 'CDP', 'CDP',
+    'CDP', 'CDP', 'CDP',
     null
   ])
 })
