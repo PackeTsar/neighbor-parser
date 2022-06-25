@@ -108,8 +108,8 @@ function lldpSysCap (block) {
 
 // Addresses
 function cdpAddresses (block) {
-  const match = block.match(/(?<=(IP|IPv4|IPv6) (A|a)ddress: )(\S*)/gm)
-  if (match) {
+  const match = block.match(/(?<=(IP|IPv4|IPv6) (A|a)ddress: )([0-9a-fA-F:]\S*)/gm)
+  if (match) { //                        hex or colon starts ---^^^^^^^^^^ ^^-- non-whitespace
     return [...new Set(match)] // Dedupe and return the array
   } else {
     return []
@@ -117,8 +117,8 @@ function cdpAddresses (block) {
 };
 
 function lldpAddresses (block) {
-  const match = block.match(/(?<=(Management Address|IP|IPV6): )(\S*)/gm)
-  if (match) {
+  const match = block.match(/(?<=(Management Address|IP|IPV6): )([0-9a-fA-F:]\S*)/gm)
+  if (match) { //                          hex or colon starts ---^^^^^^^^^^ ^^-- non-whitespace
     return [...new Set(match)] // Dedupe and return the array
   } else {
     return []
