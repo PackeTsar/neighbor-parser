@@ -109,12 +109,20 @@ function lldpSysCap (block) {
 // Addresses
 function cdpAddresses (block) {
   const match = block.match(/(?<=(IP|IPv4|IPv6) (A|a)ddress: )(\S*)/gm)
-  return match
+  if (match) {
+    return match
+  } else {
+    return []
+  }
 };
 
 function lldpAddresses (block) {
   const match = block.match(/(?<=(Management Address|IP|IPV6): )(\S*)/gm)
-  return match
+  if (match) {
+    return match
+  } else {
+    return []
+  }
 };
 
 const funcMap = {
