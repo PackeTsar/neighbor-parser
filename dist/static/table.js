@@ -6,8 +6,26 @@ $(document).ready(function () {
     paging: false,
     colReorder: true,
     columns: [
-      { data: 'num' },
-      { data: 'type' },
+      {
+        data: 'num',
+        // Render bold text for number column
+        render: function (data, type, row, meta) {
+          return '<p class="fw-bold">' + data + '</p>'
+        }
+      },
+      {
+        data: 'type',
+        // Render badges for CDP/LLDP types for visualization
+        render: function (data, type, row, meta) {
+          var style = 'danger'
+          if (data === 'CDP') {
+            style = 'primary'
+          } else if (data === 'LLDP') {
+            style = 'success'
+          }
+          return '<span class="badge bg-' + style + '">' + data + '</span>'
+        }
+      },
       { data: 'localIntf' },
       { data: 'sysName' },
       { data: 'remoteIntf' },
