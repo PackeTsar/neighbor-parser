@@ -71,8 +71,8 @@ function cdpDescription (block) {
 
 function lldpDescription (block) {
   // If there is a line return directly after "System Description:"
-  if (block.match(/System Description:\n/)) {
-    const re = /System Description:\n(.*?)(?=\n\n)/s
+  if (block.match(/System Description:[\s]*\n/)) {
+    const re = /System Description:[\s]*\n(.*?)(?=\n\n)/s
     return customSearch(re, 1, block)
   } else {
     return simpleSearch('(System Description: )(.*)', block)
