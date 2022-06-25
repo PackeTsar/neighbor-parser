@@ -1,6 +1,6 @@
 # Neighbor Parser
 
-[![Build Status](https://github.com/PackeTsar/neighbor-parser/actions/workflows/tests.yml/badge.svg)](https://github.com/PackeTsar/neighbor-parser/actions/workflows/tests.yml)
+[![Build Status](https://github.com/PackeTsar/neighbor-parser/actions/workflows/CI-CD.yml/badge.svg)](https://github.com/PackeTsar/neighbor-parser/actions/workflows/CI-CD.yml)
 
 CDP and LLDP Neighbor Parser
 
