@@ -17,7 +17,10 @@ $(document).ready(function () {
       { data: 'ttl', visible: false },
       { data: 'sysId', visible: false },
       { data: 'sysCap', visible: false },
-      { data: 'addresses' }
+      {
+        data: 'addresses',
+        render: '[, ]'
+      }
     ]
   })
   new $.fn.dataTable.Buttons(table, {
@@ -52,7 +55,7 @@ $(document).ready(function () {
     ttl: null,
     sysId: null,
     sysCap: null,
-    addresses: '10.10.10.11'
+    addresses: ['10.10.10.11', 'FE80::11']
   })
   table.row.add({
     num: '2',
@@ -66,7 +69,7 @@ $(document).ready(function () {
     ttl: null,
     sysId: null,
     sysCap: null,
-    addresses: '10.10.10.12'
+    addresses: ['10.10.10.12', 'FE80::12']
   })
   table.draw()
   $('#neighbor_search').on('keyup', function () {
