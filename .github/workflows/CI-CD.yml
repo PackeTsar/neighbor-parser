@@ -8,7 +8,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: jakejarvis/s3-sync-action@master
     - name: Install general dependencies
       run: npm install --include=dev
     - name: Install c8
@@ -28,6 +27,7 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - uses: jakejarvis/s3-sync-action@master
+      needs: Test-Lint
       with:
         args: --acl public-read --follow-symlinks --delete
       env:
