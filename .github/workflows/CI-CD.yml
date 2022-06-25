@@ -1,4 +1,4 @@
-name: CI/CD Testing and Deployment
+name: CI/CD
 on:
   push:
     branches:
