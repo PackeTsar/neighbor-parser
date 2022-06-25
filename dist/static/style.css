@@ -16,3 +16,18 @@ textarea
 .dropdown-item.active:hover{
     background-color: #495057 !important;
 }
+.accordion-button{
+    padding-top: .25rem !important;
+    padding-bottom: .25rem !important;
+}
+:not(pre) > code {
+  padding: .2em .4em;
+  margin: 0;
+  font-size: 85%;
+  background-color: rgba(27,31,35,.05);
+  border-radius: 6px;
+}
+li span { font-weight: normal; }
+.code-card {
+  max-height: 250px;
+}

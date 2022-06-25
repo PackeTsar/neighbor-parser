@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="static/favicon.ico">
     <title>Neighbor Parser</title>
     <link href="static/style.css" rel="stylesheet" />
     <link href="static/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
@@ -15,7 +16,10 @@
       <div class="container-fluid">
         <div class="collapse navbar-collapse " id="navbarSupportedContent">
           <div class="mx-auto">
-            <a class="navbar-brand " href="#">Neighbor Parser</a>
+            <a class="navbar-brand">
+              <img src="static/logo.png" width="40">
+            </a>
+            <a class="navbar-brand h1">Neighbor Parser</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -26,9 +30,263 @@
 
     <div class="container">
 
+      <div class="accordion mt-5" id="instructions">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingInstructions">
+            <button class="accordion-button collapsed" style="background-color: #f7f7f7;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructions" aria-expanded="false" aria-controls="collapseInstructions">
+              <div class="col text-center">
+                <div class="h5 mt-1">
+                  <i class="fa-solid fa-clipboard-list me-2"></i></i>Instructions
+                </div>
+              </div>
+            </button>
+          </h2>
+          <div id="collapseInstructions" class="accordion-collapse collapse" data-bs-parent="#instructions">
+            <div class="accordion-body">
+              <div class="d-flex flex-row bd-highlight mb-3">
+                <div class="p-2">
+                  <img src="static/logo.png" alt="" width="70" class="me-2">
+                </div>
+                <div class="p-2">
+                  <h3>CDP and LLDP Neighbor Parser</h3>
+                  <span class="text-secondary fst-italic">Tabulate your Cisco network neighbors</span>
+                </div>
+              </div>
+              <hr class="border-2 border-top border-secondary">
+              <div class="fs-6 fw-light">
+                <h4>How To Use</h4>
+                <ol class="list" style="font-weight: bold;">
+                  <li class="mb-3"><span>Run either <code>show cdp neighbors detail</code> or <code>show lldp neighbors detail</code> on your Cisco device</span></li>
+                  <li class="mb-3"><span>Copy the text output from the device</span></li>
+                  <li class="mb-3"><span>Paste the output in the field below</span></li>
+                  <li class="mb-3"><span>Adjust the neighbor table by</span>
+                    <ul>
+                      <li class="mb-2"><span>Dragging the columns to re-order them</span></li>
+                      <li class="mb-2"><span>Adding/removing columns using the <button type="button" class="btn btn-sm btn-secondary"><i class="fa-solid fa-gear"></i></button> button</span></li>
+                    </ul>
+                  </li>
+                  <li class="mb-3"><span>Export the neighbor table by
+                    <ul>
+                      <li class="mb-2"><span>Clicking the <button type="button" class="btn btn-sm btn-secondary"><i class="fa-regular fa-copy"></i></button> button to copy tab-seperated data (ready to paste in to a spreadsheet) to your clipboard</span></li>
+                      <li class="mb-2"><span>Clicking the <button type="button" class="btn btn-sm btn-secondary"><i class="fa-solid fa-download"></i></button> button to download a CSV of the neighbor table</span></li>
+                    </ul>
+                  </li>
+                </ol>
+              </div>
+              <hr class="border-2 border-top border-secondary">
+              <div class="fs-6">
+                <h4>Try It</h4>
+                Copy the example <code>show cdp neighbors detail</code> output below and paste it into the field to convert it to a table
+                <div class="card bg-light mt-3 p-2 code-card">
+                <pre style="margin-bottom: 0;"><code>SWITCH#show cdp neighbors detail
+-------------------------
+Device ID: INT2.example.com
+Entry address(es):
+  IP address: 10.0.0.14
+Platform: cisco ASR1001-X,  Capabilities: Router IGMP
+Interface: GigabitEthernet2/0/10,  Port ID (outgoing port): GigabitEthernet0
+Holdtime : 131 sec
+
+Version :
+Cisco IOS Software [Fuji], ASR1000 Software (X86_64_LINUX_IOSD-UNIVERSALK9-M), Version 16.9.3, RELEASE SOFTWARE (fc2)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2019 by Cisco Systems, Inc.
+Compiled Wed 20-Mar-19 08:02 by mcpre
+
+advertisement version: 2
+Duplex: full
+Management address(es):
+  IP address: 10.0.0.14
+
+-------------------------
+Device ID: INT1.example.com
+Entry address(es):
+  IP address: 10.0.0.13
+Platform: cisco ASR1001-X,  Capabilities: Router IGMP
+Interface: GigabitEthernet1/0/10,  Port ID (outgoing port): GigabitEthernet0
+Holdtime : 150 sec
+
+Version :
+Cisco IOS Software [Fuji], ASR1000 Software (X86_64_LINUX_IOSD-UNIVERSALK9-M), Version 16.9.3, RELEASE SOFTWARE (fc2)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2019 by Cisco Systems, Inc.
+Compiled Wed 20-Mar-19 08:02 by mcpre
+
+advertisement version: 2
+Duplex: full
+Management address(es):
+  IP address: 10.0.0.13
+
+-------------------------
+Device ID: CORE2.example.com(SERIAL)
+Entry address(es):
+  IP address: 10.0.16.3
+Platform: N9K-C93180YC-EX,  Capabilities: Router Switch IGMP CVTA phone port
+Interface: TenGigabitEthernet2/0/1,  Port ID (outgoing port): Ethernet1/46
+Holdtime : 147 sec
+
+Version :
+Cisco Nexus Operating System (NX-OS) Software, Version 9.3(8)
+
+advertisement version: 2
+Native VLAN: 1
+Duplex: full
+
+-------------------------
+Device ID: ESX9.example.com
+Entry address(es):
+Platform: VMware ESXi,  Capabilities: Switch
+Interface: GigabitEthernet1/0/13,  Port ID (outgoing port): vmnic0
+Holdtime : 127 sec
+
+Version :
+Releasebuild-19482537
+
+advertisement version: 2
+VTP Management Domain: ''
+Duplex: full
+
+-------------------------
+Device ID: ESX9.example.com
+Entry address(es):
+Platform: VMware ESXi,  Capabilities: Switch
+Interface: GigabitEthernet2/0/13,  Port ID (outgoing port): vmnic1
+Holdtime : 127 sec
+
+Version :
+Releasebuild-19482537
+
+advertisement version: 2
+VTP Management Domain: ''
+Duplex: full
+
+-------------------------
+Device ID: CORE1.example.com(SERIAL)
+Entry address(es):
+  IP address: 10.0.16.2
+Platform: N9K-C93180YC-EX,  Capabilities: Router Switch IGMP CVTA phone port
+Interface: TenGigabitEthernet1/0/1,  Port ID (outgoing port): Ethernet1/46
+Holdtime : 147 sec
+
+Version :
+Cisco Nexus Operating System (NX-OS) Software, Version 9.3(8)
+
+advertisement version: 2
+Native VLAN: 1
+Duplex: full
+
+-------------------------
+Device ID: ROUTER1.example.com
+Entry address(es):
+  IP address: 10.0.0.20
+  IPv6 address: 2001:0DB8:0:6400::20  (global unicast)
+  IPv6 address: FE80::5250  (link-local)
+Platform: Cisco CISCO2901/K9,  Capabilities: Router Source-Route-Bridge Switch
+Interface: GigabitEthernet1/0/17,  Port ID (outgoing port): GigabitEthernet0/0
+Holdtime : 177 sec
+
+Version :
+Cisco IOS Software, C2900 Software (C2900-UNIVERSALK9-M), Version 15.7(3)M5, RELEASE SOFTWARE (fc1)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2019 by Cisco Systems, Inc.
+Compiled Fri 27-Sep-19 05:10 by prod_rel_team
+
+advertisement version: 2
+VTP Management Domain: ''
+Duplex: full
+Management address(es):
+  IP address: 10.0.0.20
+
+-------------------------
+Device ID: ROUTER2.example.com
+Entry address(es):
+  IP address: 10.0.0.26
+  IPv6 address: 2001:0DB8:0:6400::26  (global unicast)
+  IPv6 address: FE80::AC30  (link-local)
+Platform: Cisco CISCO2901/K9,  Capabilities: Router Source-Route-Bridge Switch
+Interface: GigabitEthernet2/0/17,  Port ID (outgoing port): GigabitEthernet0/0
+Holdtime : 165 sec
+
+Version :
+Cisco IOS Software, C2900 Software (C2900-UNIVERSALK9-M), Version 15.7(3)M7, RELEASE SOFTWARE (fc1)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2020 by Cisco Systems, Inc.
+Compiled Tue 01-Sep-20 15:17 by prod_rel_team
+
+advertisement version: 2
+VTP Management Domain: ''
+Duplex: full
+Management address(es):
+  IP address: 10.0.0.26
+
+-------------------------
+Device ID: ROUTER3.example.com
+Entry address(es):
+  IP address: 10.0.0.19
+  IPv6 address: 2001:0DB8:0:6400::19  (global unicast)
+  IPv6 address: FE80::7350  (link-local)
+Platform: Cisco CISCO2901/K9,  Capabilities: Router Source-Route-Bridge Switch
+Interface: GigabitEthernet1/0/14,  Port ID (outgoing port): GigabitEthernet0/0
+Holdtime : 160 sec
+
+Version :
+Cisco IOS Software, C2900 Software (C2900-UNIVERSALK9-M), Version 15.7(3)M5, RELEASE SOFTWARE (fc1)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2019 by Cisco Systems, Inc.
+Compiled Fri 27-Sep-19 05:10 by prod_rel_team
+
+advertisement version: 2
+VTP Management Domain: ''
+Duplex: full
+Management address(es):
+  IP address: 10.0.0.19
+
+-------------------------
+Device ID: MDS1.example.com(SERIAL)
+Entry address(es):
+  IP address: 10.0.0.68
+Platform: DS-C9148-16P-K9,  Capabilities: Router Switch CVTA phone port
+Interface: GigabitEthernet1/0/11,  Port ID (outgoing port): mgmt0
+Holdtime : 149 sec
+
+Version :
+Cisco Nexus Operating System (NX-OS) Software, Version 6.2(1)
+
+advertisement version: 2
+Duplex: full
+Management address(es):
+  IP address: 10.0.0.68
+
+-------------------------
+Device ID: MDS2.example.com(SERIAL)
+Entry address(es):
+  IP address: 10.0.0.69
+Platform: DS-C9148-16P-K9,  Capabilities: Router Switch CVTA phone port
+Interface: GigabitEthernet2/0/11,  Port ID (outgoing port): mgmt0
+Holdtime : 133 sec
+
+Version :
+Cisco Nexus Operating System (NX-OS) Software, Version 6.2(1)
+
+advertisement version: 2
+Duplex: full
+Management address(es):
+  IP address: 10.0.0.69
+
+
+Total cdp entries displayed : 11
+SWITCH#
+                </code></pre>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="card text-center mt-5">
         <div class="card-header h5">
-          Neighbor Output
+          <i class="fa-solid fa-code me-2"></i>Neighbor Output
         </div>
         <div class="card-body">
           <div class="form-group">
@@ -43,7 +301,7 @@
             <div class="row">
               <div class="col-xl"></div>
               <div class="col text-center">
-                <div class="h5">Neighbors</div>
+                <div class="h5"><i class="fa-solid fa-table me-2"></i>Neighbors</div>
               </div>
               <div class="col-xl col-12 text-end p-0">
                 <div class="d-flex justify-content-end">
