@@ -28,7 +28,7 @@ function handleCopyClick (evt) {
   // Grab the clipboard button
   const copyButton = $(parentDiv).children('button')[0]
   // Grab the text from the code block
-  const codeText = $(parentDiv).children('pre')[0].innerText
+  const codeText = $(parentDiv).children('textarea')[0].value
   // Copy all of the code to the clipboard
   copyToClipboard(codeText)
   // Set inside text to let user know copy was done
@@ -43,8 +43,6 @@ function handleCopyClick (evt) {
 $(document).ready(function () {
   // Get the list of all highlight code blocks
   const highlights = document.querySelectorAll('div.highlight')
-  console.log(highlights)
-
   highlights.forEach(div => {
     // Create the copy button
     const copy = document.createElement('button')

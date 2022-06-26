@@ -78,8 +78,8 @@
                 <h4>Try It</h4>
                 <p>Copy one [or both] of the examples below and paste it into the field to convert it to a table</p>
                 <h5 class="mt-4" ><span class="badge bg-primary ">CDP</span> Example: <code>show cdp neighbors detail</code></h5>
-                <div class="card bg-light mt-3 p-2 code-card highlight">
-                  <pre style="margin-bottom: 0;"><code>SWITCH#show cdp neighbors detail
+                <div class="form-group textarea-container highlight">
+                  <textarea class="form-control example-textarea highlight bg-light" rows="8" readonly>SWITCH#show cdp neighbors detail
 -------------------------
 Device ID: INT2.example.com
 Entry address(es):
@@ -276,11 +276,11 @@ Management address(es):
 
 
 Total cdp entries displayed : 11
-SWITCH#</code></pre>
+SWITCH#</textarea>
                 </div>
                 <h5 class="mt-4"><span class="badge bg-success ">LLDP</span> Example: <code>show lldp neighbors detail</code></h5>
-                <div class="card bg-light mt-3 p-2 code-card highlight">
-                  <pre style="margin-bottom: 0;"><code>SW1#show lldp neighbors detail
+                <div class="form-group textarea-container highlight">
+                  <textarea class="form-control example-textarea highlight bg-light" rows="8" readonly>SW1#show lldp neighbors detail
 ------------------------------------------------
 Local Intf: Te1/0/1
 Chassis id: 0000.0000.0001
@@ -427,7 +427,7 @@ Vlan ID: 1
 Total entries displayed: 6
 
 SW1#
-SW1#</code></pre>
+SW1#</textarea>
                 </div>
               </div>
             </div>
@@ -441,7 +441,7 @@ SW1#</code></pre>
         </div>
         <div class="card-body">
           <div class="form-group">
-            <textarea id="neighborData" class="form-control" rows="10" placeholder='Paste output from "show cdp neighbors detail" or "show lldp neighbors detail" here' autofocus></textarea>
+            <textarea id="neighborData" class="form-control input-textarea" rows="10" placeholder='Paste output from "show cdp neighbors detail" or "show lldp neighbors detail" here' autofocus></textarea>
           </div>
         </div>
       </div>
