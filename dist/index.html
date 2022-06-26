@@ -36,7 +36,7 @@
             <button class="accordion-button collapsed" style="background-color: #f7f7f7;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructions" aria-expanded="false" aria-controls="collapseInstructions">
               <div class="col text-center">
                 <div class="h5 mt-1">
-                  <i class="fa-solid fa-clipboard-list me-2"></i></i>Instructions
+                  <i class="fa-solid fa-book me-2"></i>Instructions
                 </div>
               </div>
             </button>
@@ -54,7 +54,7 @@
               </div>
               <hr class="border-2 border-top border-secondary">
               <div class="fs-6 fw-light">
-                <h4>How To Use</h4>
+                <h4><i class="fa-solid fa-list me-2"></i>How To Use</h4>
                 <ol class="list" style="font-weight: bold;">
                   <li class="mb-3"><span>Run either <code>show cdp neighbors detail</code> or <code>show lldp neighbors detail</code> on your Cisco device</span></li>
                   <li class="mb-3"><span>Copy the text output from the device</span></li>
@@ -75,8 +75,8 @@
               </div>
               <hr class="border-2 border-top border-secondary">
               <div class="fs-6">
-                <h4>Try It</h4>
-                <p>Copy one [or both] of the examples below and paste it into the field to convert it to a table</p>
+                <h4><i class="fa-solid fa-flask me-2"></i>Try It</h4>
+                <p>Copy one [or both] of the examples below and paste it into the "Neighbor Output" field below to convert it to a table</p>
                 <h5 class="mt-4" ><span class="badge bg-primary ">CDP</span> Example: <code>show cdp neighbors detail</code></h5>
                 <div class="form-group textarea-container highlight">
                   <textarea class="form-control example-textarea highlight bg-light" rows="8" readonly>SWITCH#show cdp neighbors detail
@@ -429,6 +429,24 @@ Total entries displayed: 6
 SW1#
 SW1#</textarea>
                 </div>
+              </div>
+              <hr class="border-2 border-top border-secondary">
+              <div class="fs-6">
+                <h4><i class="fa-solid fa-user-secret me-2"></i>Privacy</h4>
+                <p>Neighbor Parser is a <b>100% client-side application</b>. The website is completely static and sends none of your private data over the internet.</p>
+                <p>The code is open-source and is published on the <a href="https://github.com/PackeTsar/neighbor-parser/" target="_blank">GitHub page</a>.</p>
+                <p>You can use this webpage offline (with no network access) by either:
+                  <ol>
+                    <li class="mb-2">Using your browser to save this page as a series of files (<b>File</b> > <b>Save as...</b> or equivalent)</li>
+                    <li class="mb-2">Downloading the <a href="https://github.com/PackeTsar/neighbor-parser/archive/refs/heads/main.zip">source repository ZIP file</a> from GitHub, unzipping it, and opening the <code>dist/index.html</code> file with your browser.</li>
+                  </ol>
+                </p>
+              </div>
+              <hr class="border-2 border-top border-secondary">
+              <div class="fs-6">
+                <h4><i class="fa-solid fa-bug me-2"></i>Bugs</h4>
+                <p>If you encouter a bug or would like to see a feature added to this web app, please <a class="btn btn-sm btn-info" href="https://github.com/PackeTsar/neighbor-parser/issues/new" role="button" target="_blank">open an issue</a> on the GitHub page.</p>
+                <p>To contribute features or bug fixes, fork the repo and submit a merge request.</p>
               </div>
             </div>
           </div>
