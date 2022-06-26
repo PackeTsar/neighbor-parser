@@ -27,6 +27,12 @@ jobs:
       run: rm -f dist/static/neighbors/bundle.js
     - name: Generate dist code
       run: npx webpack
+    - name: Delete Zipped Dist
+      run: rf -f dist/neighbor-parser-dist.zip
+    - name: Zip Dist Code
+      run: zip -r neighbor-parser-dist.zip dist/
+    - name: Move Zipped Dist
+      run: mv neighbor-parser-dist.zip dist/
     - name: Upload to S3
       uses: jakejarvis/s3-sync-action@master
       with:
