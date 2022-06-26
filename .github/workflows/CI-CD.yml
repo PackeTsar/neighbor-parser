@@ -28,7 +28,7 @@ jobs:
     - name: Generate dist code
       run: npx webpack
     - name: Delete Zipped Dist
-      run: rf -f dist/neighbor-parser-dist.zip
+      run: rm -f dist/neighbor-parser-dist.zip
     - name: Zip Dist Code
       run: zip -r neighbor-parser-dist.zip dist/
     - name: Move Zipped Dist
