@@ -8,13 +8,16 @@ CDP and LLDP Neighbor Parser
 
 Instructions for use exist on hosted web app
 
+
 ---
+
 
 ## Contribute
 
 This project is very new and has been created out of need. If you have a feature you would like to see built into it, please open up an issue in Github and describe your desired feature.
 
 If you find a need for a feature and you add it in yourself, or you fix a bug you found, please feel free to open up a merge request!
+
 
 ---
 
@@ -29,6 +32,9 @@ If you find a need for a feature and you add it in yourself, or you fix a bug yo
 - Check for 100% code coverage: `c8 --100 npm test`
 - Generate coverage report: `c8 report --reporter html`
 - Compile to bundle: `npx webpack`
+
+
+---
 
 
 ## Release Checklist
