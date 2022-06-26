@@ -18,10 +18,6 @@ jobs:
       run: npx eslint src/
     - name: Check for 100% test coverage
       run: c8 --100 npm test
-    - name: Delete dist code
-      run: rm -f dist/static/neighbors/bundle.js
-    - name: Generate dist code
-      run: npx webpack
   Build-Deploy:
     runs-on: ubuntu-latest
     needs: Test-Lint
