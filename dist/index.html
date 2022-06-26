@@ -454,8 +454,23 @@ SW1#</textarea>
       </div>
 
       <div class="card text-center mt-5">
-        <div class="card-header h5">
-          <i class="fa-solid fa-code me-2"></i>Neighbor Output
+        <div class="card-header">
+          <div class="container">
+            <div class="row">
+              <div class="col-xl"></div>
+              <div class="col d-flex align-items-center justify-content-center">
+                <span class="h5 mb-0 text-center"><i class="fa-solid fa-code me-2"></i>Neighbor Output</span>
+              </div>
+              <div class="col-xl col-12 text-end p-0">
+                <div class="d-flex justify-content-end">
+                  <div class="flex-shrink-1 pe-2">
+                    <button type="button" id="parseNeighbors" class="btn btn-success"><i class="fa-solid fa-circle-check me-2"></i>Parse</button>
+                    <button type="button" id="clearNeighborData" class="btn btn-outline-secondary"><i class="fa-solid fa-trash-can me-2"></i>Clear</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="card-body">
           <div class="form-group">
@@ -518,7 +533,7 @@ SW1#</textarea>
         <div class="container">
             <ul class="navbar-nav ms-auto flex-nowrap">
                 <li class="nav-item me-4">
-                    <span class="navbar-text">v1.0.2</span>
+                    <span class="navbar-text">v1.1.0</span>
                 </li>
                 <li class="nav-item me-4">
                     <a class="navbar-text" href="neighbor-parser-dist.zip" title="Download offline copy of website"><i class="fa-solid fa-cloud-arrow-down fa-lg"></i></a>
