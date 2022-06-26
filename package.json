@@ -1,6 +1,6 @@
 {
-  "name": "neighbors",
-  "version": "1.0.0",
+  "name": "neighbor-parser",
+  "version": "1.0.2",
   "description": "Parse CDP and LLDP neighbor data",
   "main": "index.js",
   "directories": {
