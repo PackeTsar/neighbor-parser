@@ -31,3 +31,14 @@ li span { font-weight: normal; }
 .code-card {
   max-height: 250px;
 }
+div.highlight button {
+  color: #6c757d;
+  background: rgba(0, 0, 0, 0.25);
+  border: 2px solid rgba(255, 255, 255, .5);
+  padding: .5em .5em;
+  font-size: 1em;
+  position: absolute;
+  top: .25em;
+  right: 2em;
+  border-radius: 5px;
+}
