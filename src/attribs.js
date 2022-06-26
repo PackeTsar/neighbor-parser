@@ -107,22 +107,27 @@ function lldpSysCap (block) {
 };
 
 // Addresses
-function cdpAddresses (block) {
-  const match = block.match(/(?<=(IP|IPv4|IPv6) (A|a)ddress: )([0-9a-fA-F:]\S*)/gm)
-  if (match) { //                        hex or colon starts ---^^^^^^^^^^ ^^-- non-whitespace
-    return [...new Set(match)] // Dedupe and return the array
+
+function processAddresses (matchObjs, index) {
+  if (matchObjs) {
+    const matchArray = []
+    for (const matchObj of matchObjs) {
+      matchArray.push(matchObj[index])
+    }
+    return [...new Set(matchArray)] // Dedupe and return the array
   } else {
     return []
   }
+}
+
+function cdpAddresses (block) {
+  const matchObjs = block.matchAll(/(IP|IPv4|IPv6) (A|a)ddress: ([0-9a-fA-F:]\S*)/gm) /* c8 ignore next */
+  return processAddresses(matchObjs, 3)
 };
 
 function lldpAddresses (block) {
-  const match = block.match(/(?<=(Management Address|IP|IPV6): )([0-9a-fA-F:]\S*)/gm)
-  if (match) { //                          hex or colon starts ---^^^^^^^^^^ ^^-- non-whitespace
-    return [...new Set(match)] // Dedupe and return the array
-  } else {
-    return []
-  }
+  const matchObjs = block.matchAll(/((Management Address|IP|IPV6): )([0-9a-fA-F:]\S*)/gm)
+  return processAddresses(matchObjs, 3)
 };
 
 const funcMap = {
