@@ -9,7 +9,6 @@ $(document).ready(function () {
     const neighborObjs = neighbors.getNeighbors($(this).val())
     for (let i = 0; i < neighborObjs.length; i++) {
       neighborObjs[i].num = i + 1
-      console.log(neighborObjs[i])
       table.row.add(neighborObjs[i])
     };
     table.draw()
