@@ -46,6 +46,9 @@ $(document).ready(function () {
   highlights.forEach(div => {
     // Create the copy button
     const copy = document.createElement('button')
+    // Set title and tooltip attributes on the button so tooltip will work
+    copy.setAttribute('title', 'Copy to clipboard')
+    copy.setAttribute('data-bs-toggle', 'tooltip')
     // Set the icon inside the button
     copy.innerHTML = '<i class="fa fa-clone fa-lg"></i>'
     // Set button type to prevent default form 'submit' action
