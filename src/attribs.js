@@ -1,3 +1,6 @@
+/******************************************************************************
+GENERAL USE FUNCTIONS
+******************************************************************************/
 function simpleSearch (regex, block) {
   const re = new RegExp(regex)
   const match = re.exec(block)
@@ -16,6 +19,10 @@ function customSearch (re, index, block) {
     return null
   }
 };
+
+/******************************************************************************
+CDP/LLDP DETAIL FUNCTIONS
+******************************************************************************/
 
 // Local Interface
 function cdpLocalIntf (block) {
@@ -129,6 +136,10 @@ function lldpAddresses (block) {
   const matchObjs = block.matchAll(/((Management Address|IP|IPV6): )([0-9a-fA-F:]\S*)/gm)
   return processAddresses(matchObjs, 3)
 };
+
+/******************************************************************************
+EXPORTS
+******************************************************************************/
 
 const funcMap = {
   CDP: {
