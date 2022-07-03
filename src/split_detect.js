@@ -29,11 +29,18 @@ function getShortBlocks (block) {
 };
 
 function split (block) {
+  /*
+  Split blocks of neighbors apart from each other using hyphens or double
+    blank lines.
+  */
   const re = /-----*|\n\n\n/
   return block.split(re)
 };
 
 function detect (block) {
+  /*
+  Detect the type of block being processed.
+  */
   if (block.match(/Platform:/)) {
     return 'CDP'
   } else if (block.match(/System Name:/)) {
@@ -44,16 +51,20 @@ function detect (block) {
 };
 
 function splitDetect (block) {
+  /*
+  Split the source block into an array of blocks, then detect the type of each
+    block in the array.
+  */
   const blocks = split(block)
   // Map the blocks array to an array of objects like [{type: "CDP", data: ...}]
   return blocks.map(block => ({ type: detect(block), data: block }))
 };
 
-/*
-Clean an array returned from the splitDetect() function by removing any objects
-  in it which have a null type.
-*/
 function cleanArray (blockObjArray) {
+  /*
+  Clean an array returned from the splitDetect() function by removing any
+    objects in it which have a null type.
+  */
   const result = []
   for (let i = 0; i < blockObjArray.length; i++) {
     if (blockObjArray[i].type) {
