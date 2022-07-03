@@ -27,6 +27,12 @@ If you find a need for a feature and you add it in yourself, or you fix a bug yo
 - Clone repo and nav to `neighbor-parser/`
 - Install dependencies with `npm install --include=dev`
 - Install C8 globally with `npm install c8 -g`
+
+
+---
+
+
+## Development Cycle
 - Run tests with `npm test`
 - Lint with `npx eslint src/`
 - Check for 100% code coverage: `c8 --100 npm test`
