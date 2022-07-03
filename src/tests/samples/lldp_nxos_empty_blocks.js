@@ -1,4 +1,4 @@
-const fourteenBlocks = `
+const sample = `
 SWITCH#
 SWITCH# show lldp neighbors detail
 Capability codes:
@@ -51,4 +51,4 @@ Total entries displayed: 14
 SWITCH#
 SWITCH# `
 
-module.exports = { fourteenBlocks }
+module.exports = { sample }

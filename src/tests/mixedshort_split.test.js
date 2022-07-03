@@ -16,6 +16,18 @@ const sampleArray = [
   lldpNxos
 ]
 
+test('Check insertion of delineators above table headers', () => {
+  sampleArray.forEach(function (sample) {
+    const modifiedSample = split.insertDelineators(sample.sample)
+    expect(modifiedSample.includes('--------\n')).toBe(true)
+  })
+})
+
+test('Check insertion DOES affect NXOS LLDP detail output', () => {
+  const modifiedSample = split.insertDelineators(nxosDetail.sample)
+  expect(modifiedSample.includes('--------\n')).toBe(true)
+})
+
 test('Check all short samples render only one match', () => {
   sampleArray.forEach(function (sample) {
     expect(split.getShortBlocks(sample.sample).length).toBe(1)
@@ -31,5 +43,5 @@ test('Check appended samples render a match for each additional', () => {
 })
 
 test('Check that NXOS "show lldp neighbor detail" does not match', () => {
-  expect(split.getShortBlocks(nxosDetail.fourteenBlocks)).toBe(null)
+  expect(split.getShortBlocks(nxosDetail.sample)).toBe(null)
 })
