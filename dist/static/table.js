@@ -22,6 +22,10 @@ $(document).ready(function () {
             style = 'primary'
           } else if (data === 'LLDP') {
             style = 'success'
+          } else if (data === 'CDP-SHORT') {
+            style = 'primary'
+          } else if (data === 'LLDP-SHORT') {
+            style = 'success'
           }
           return '<span class="badge bg-' + style + '">' + data + '</span>'
         }

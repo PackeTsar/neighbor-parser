@@ -21,28 +21,48 @@ const structured = [
     localIntf: 'Te1/0/1',
     ttl: '120',
     sysCap: ['B', 'R'],
-    remoteIntf: 'Ethernet1/46'
+    remoteIntf: 'Ethernet1/46',
+    remoteIntfId: null,
+    platform: null,
+    description: null,
+    sysId: null,
+    addresses: []
   },
   {
     sysName: 'INT1.subdomain.examp',
     localIntf: 'Gi1/0/10',
     ttl: '120',
     sysCap: ['R'],
-    remoteIntf: 'Gi0'
+    remoteIntf: 'Gi0',
+    remoteIntfId: null,
+    platform: null,
+    description: null,
+    sysId: null,
+    addresses: []
   },
   {
     sysName: 'INT2.subdomain.examp',
     localIntf: 'Gi2/0/10',
     ttl: '120',
     sysCap: ['R'],
-    remoteIntf: 'Gi0'
+    remoteIntf: 'Gi0',
+    remoteIntfId: null,
+    platform: null,
+    description: null,
+    sysId: null,
+    addresses: []
   },
   {
     sysName: 'CORE2.subdomain.exam',
     localIntf: 'Te2/0/1',
     ttl: '120',
     sysCap: ['B', 'R'],
-    remoteIntf: 'Ethernet1/46'
+    remoteIntf: 'Ethernet1/46',
+    remoteIntfId: null,
+    platform: null,
+    description: null,
+    sysId: null,
+    addresses: []
   }
 ]
 

@@ -41,7 +41,11 @@ const structured = [
     ttl: '160',
     sysCap: ['H'],
     platform: 'AIR-CTVM-K9',
-    remoteIntf: 'Gig0/0/1'
+    remoteIntf: 'Gig0/0/1',
+    remoteIntfId: null,
+    description: null,
+    sysId: null,
+    addresses: []
   },
   {
     sysName: 'ESX9.example.com',
@@ -49,7 +53,11 @@ const structured = [
     ttl: '179',
     sysCap: ['S'],
     platform: 'VMware',
-    remoteIntf: 'ESXi   vmnic2'
+    remoteIntf: 'ESXi   vmnic2',
+    remoteIntfId: null,
+    description: null,
+    sysId: null,
+    addresses: []
   },
   {
     sysName: 'SW2.example.com',
@@ -57,7 +65,11 @@ const structured = [
     ttl: '136',
     sysCap: ['S', 'I'],
     platform: 'WS-C3850-48U',
-    remoteIntf: 'Ten1/1/3'
+    remoteIntf: 'Ten1/1/3',
+    remoteIntfId: null,
+    description: null,
+    sysId: null,
+    addresses: []
   },
   {
     sysName: 'INT1.example.com',
@@ -65,7 +77,11 @@ const structured = [
     ttl: '140',
     sysCap: ['R', 'I'],
     platform: 'ASR1001-X',
-    remoteIntf: 'Gig0/0/2'
+    remoteIntf: 'Gig0/0/2',
+    remoteIntfId: null,
+    description: null,
+    sysId: null,
+    addresses: []
   },
   {
     sysName: 'INT2.example.com',
@@ -73,7 +89,11 @@ const structured = [
     ttl: '172',
     sysCap: ['R', 'I'],
     platform: 'ASR1001-X',
-    remoteIntf: 'Gig0/0/2'
+    remoteIntf: 'Gig0/0/2',
+    remoteIntfId: null,
+    description: null,
+    sysId: null,
+    addresses: []
   },
   {
     sysName: 'SW1.example.com',
@@ -81,7 +101,11 @@ const structured = [
     ttl: '166',
     sysCap: ['S', 'I'],
     platform: 'WS-C2960X-48F',
-    remoteIntf: 'Ten1/0/1'
+    remoteIntf: 'Ten1/0/1',
+    remoteIntfId: null,
+    description: null,
+    sysId: null,
+    addresses: []
   },
   {
     sysName: 'CORE2.example.com(SERIALNUM)',
@@ -89,7 +113,11 @@ const structured = [
     ttl: '179',
     sysCap: ['R', 'S', 's'],
     platform: 'N9K-C93180YC-',
-    remoteIntf: 'Eth1/47'
+    remoteIntf: 'Eth1/47',
+    remoteIntfId: null,
+    description: null,
+    sysId: null,
+    addresses: []
   },
   {
     sysName: 'CORE2.example.com(SERIALNUM)',
@@ -97,7 +125,11 @@ const structured = [
     ttl: '179',
     sysCap: ['R', 'S', 's'],
     platform: 'N9K-C93180YC-',
-    remoteIntf: 'Eth1/48'
+    remoteIntf: 'Eth1/48',
+    remoteIntfId: null,
+    description: null,
+    sysId: null,
+    addresses: []
   },
   {
     sysName: 'CUMULUS_SWITCH1',
@@ -105,7 +137,11 @@ const structured = [
     ttl: '97',
     sysCap: ['R', 'S'],
     platform: 'Linux',
-    remoteIntf: 'swp53'
+    remoteIntf: 'swp53',
+    remoteIntfId: null,
+    description: null,
+    sysId: null,
+    addresses: []
   },
   {
     sysName: 'CUMULUS_SWITCH2',
@@ -113,7 +149,11 @@ const structured = [
     ttl: '106',
     sysCap: ['R', 'S'],
     platform: 'Linux',
-    remoteIntf: 'swp53'
+    remoteIntf: 'swp53',
+    remoteIntfId: null,
+    description: null,
+    sysId: null,
+    addresses: []
   },
   {
     sysName: 'CUMULUS_SWITCH3',
@@ -121,7 +161,11 @@ const structured = [
     ttl: '91',
     sysCap: ['R', 'S'],
     platform: 'Linux',
-    remoteIntf: 'swp53'
+    remoteIntf: 'swp53',
+    remoteIntfId: null,
+    description: null,
+    sysId: null,
+    addresses: []
   },
   {
     sysName: 'CORE2.example.com(SERIALNUM)',
@@ -129,7 +173,11 @@ const structured = [
     ttl: '139',
     sysCap: ['R', 'S', 'I', 's'],
     platform: 'N9K-C93180YC-',
-    remoteIntf: 'Eth1/53'
+    remoteIntf: 'Eth1/53',
+    remoteIntfId: null,
+    description: null,
+    sysId: null,
+    addresses: []
   }
 ]
 

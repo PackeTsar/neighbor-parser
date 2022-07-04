@@ -39,7 +39,11 @@ const structured = [
     ttl: '142',
     sysCap: ['R', 'I'],
     platform: 'ASR1001-X',
-    remoteIntf: 'Gig 0'
+    remoteIntf: 'Gig 0',
+    remoteIntfId: null,
+    description: null,
+    sysId: null,
+    addresses: []
   },
   {
     sysName: 'INT1.example.com',
@@ -47,7 +51,11 @@ const structured = [
     ttl: '146',
     sysCap: ['R', 'I'],
     platform: 'ASR1001-X',
-    remoteIntf: 'Gig 0'
+    remoteIntf: 'Gig 0',
+    remoteIntfId: null,
+    description: null,
+    sysId: null,
+    addresses: []
   },
   {
     sysName: 'CORE2.example.com(SERIALNUM)',
@@ -55,7 +63,11 @@ const structured = [
     ttl: '134',
     sysCap: ['R', 'S', 'I', 'C'],
     platform: 'N9K-C9318',
-    remoteIntf: 'Eth 1/46'
+    remoteIntf: 'Eth 1/46',
+    remoteIntfId: null,
+    description: null,
+    sysId: null,
+    addresses: []
   },
   {
     sysName: 'ESX9.example.com',
@@ -63,7 +75,11 @@ const structured = [
     ttl: '173',
     sysCap: ['S'],
     platform: 'VMware',
-    remoteIntf: 'ES vmnic0'
+    remoteIntf: 'ES vmnic0',
+    remoteIntfId: null,
+    description: null,
+    sysId: null,
+    addresses: []
   },
   {
     sysName: 'ESX9.example.com',
@@ -71,7 +87,11 @@ const structured = [
     ttl: '173',
     sysCap: ['S'],
     platform: 'VMware',
-    remoteIntf: 'ES vmnic1'
+    remoteIntf: 'ES vmnic1',
+    remoteIntfId: null,
+    description: null,
+    sysId: null,
+    addresses: []
   },
   {
     sysName: 'CORE1.example.com(SERIALNUM)',
@@ -79,7 +99,11 @@ const structured = [
     ttl: '134',
     sysCap: ['R', 'S', 'I', 'C'],
     platform: 'N9K-C9318',
-    remoteIntf: 'Eth 1/46'
+    remoteIntf: 'Eth 1/46',
+    remoteIntfId: null,
+    description: null,
+    sysId: null,
+    addresses: []
   },
   {
     sysName: 'ROUTER4.example.com',
@@ -87,7 +111,11 @@ const structured = [
     ttl: '135',
     sysCap: ['R', 'B', 'S'],
     platform: 'CISCO2901',
-    remoteIntf: 'Gig 0/0'
+    remoteIntf: 'Gig 0/0',
+    remoteIntfId: null,
+    description: null,
+    sysId: null,
+    addresses: []
   },
   {
     sysName: 'ROUTER5.example.com',
@@ -95,7 +123,11 @@ const structured = [
     ttl: '131',
     sysCap: ['R', 'B', 'S'],
     platform: 'CISCO2901',
-    remoteIntf: 'Gig 0/0'
+    remoteIntf: 'Gig 0/0',
+    remoteIntfId: null,
+    description: null,
+    sysId: null,
+    addresses: []
   },
   {
     sysName: 'ROUTER3.example.com',
@@ -103,7 +135,11 @@ const structured = [
     ttl: '133',
     sysCap: ['R', 'B', 'S'],
     platform: 'CISCO2901',
-    remoteIntf: 'Gig 0/0'
+    remoteIntf: 'Gig 0/0',
+    remoteIntfId: null,
+    description: null,
+    sysId: null,
+    addresses: []
   },
   {
     sysName: 'MDS1.example.com(SERIALNUM)',
@@ -111,7 +147,11 @@ const structured = [
     ttl: '167',
     sysCap: ['R', 'S', 'C'],
     platform: 'DS-C9148-',
-    remoteIntf: 'mgmt0'
+    remoteIntf: 'mgmt0',
+    remoteIntfId: null,
+    description: null,
+    sysId: null,
+    addresses: []
   },
   {
     sysName: 'MDS2.example.com(SERIALNUM)',
@@ -119,7 +159,11 @@ const structured = [
     ttl: '148',
     sysCap: ['R', 'S', 'C'],
     platform: 'DS-C9148-',
-    remoteIntf: 'mgmt0'
+    remoteIntf: 'mgmt0',
+    remoteIntfId: null,
+    description: null,
+    sysId: null,
+    addresses: []
   }
 ]
 

@@ -43,8 +43,7 @@ test('Trim and check a short CDP table', () => {
 
 test('Trim and parse CDP tables', () => {
   sampleArray.slice(0, 3).forEach(function (sample) {
-    const trimmed = attribs.trimTable(sample.sample)
-    const neighbors = attribs.cdpParseTable(trimmed)
+    const neighbors = attribs.cdpParseTable(sample.sample)
     expect(neighbors).toStrictEqual(sample.structured)
   })
 })

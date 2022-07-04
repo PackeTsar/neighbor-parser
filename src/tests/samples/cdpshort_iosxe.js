@@ -27,7 +27,11 @@ const structured = [
     ttl: '114',
     sysCap: [],
     platform: 'Meraki',
-    remoteIntf: 'MV Port 0'
+    remoteIntf: 'MV Port 0',
+    remoteIntfId: null,
+    description: null,
+    sysId: null,
+    addresses: []
   },
   {
     sysName: 'WAP1',
@@ -35,7 +39,11 @@ const structured = [
     ttl: '149',
     sysCap: ['R', 'T'],
     platform: 'AIR-AP380',
-    remoteIntf: 'Gig 0'
+    remoteIntf: 'Gig 0',
+    remoteIntfId: null,
+    description: null,
+    sysId: null,
+    addresses: []
   },
   {
     sysName: 'CORE2.example.com(SERIALNUM)',
@@ -43,7 +51,11 @@ const structured = [
     ttl: '152',
     sysCap: ['R', 'S', 'I', 'C'],
     platform: 'N9K-C9318',
-    remoteIntf: 'Eth 1/41'
+    remoteIntf: 'Eth 1/41',
+    remoteIntfId: null,
+    description: null,
+    sysId: null,
+    addresses: []
   },
   {
     sysName: 'CORE1.example.com(SERIALNUM)',
@@ -51,7 +63,11 @@ const structured = [
     ttl: '152',
     sysCap: ['R', 'S', 'I', 'C'],
     platform: 'N9K-C9318',
-    remoteIntf: 'Eth 1/41'
+    remoteIntf: 'Eth 1/41',
+    remoteIntfId: null,
+    description: null,
+    sysId: null,
+    addresses: []
   },
   {
     sysName: 'WAP2',
@@ -59,7 +75,11 @@ const structured = [
     ttl: '161',
     sysCap: ['R', 'T'],
     platform: 'Unknown',
-    remoteIntf: 'Gig 0'
+    remoteIntf: 'Gig 0',
+    remoteIntfId: null,
+    description: null,
+    sysId: null,
+    addresses: []
   },
   {
     sysName: '000000000002',
@@ -67,7 +87,11 @@ const structured = [
     ttl: '179',
     sysCap: [],
     platform: 'Meraki',
-    remoteIntf: 'MV Port 0'
+    remoteIntf: 'MV Port 0',
+    remoteIntfId: null,
+    description: null,
+    sysId: null,
+    addresses: []
   },
   {
     sysName: 'ROUTER1.example.com',
@@ -75,7 +99,11 @@ const structured = [
     ttl: '159',
     sysCap: ['R', 'B', 'S'],
     platform: 'CISCO2901',
-    remoteIntf: 'Gig 0/0'
+    remoteIntf: 'Gig 0/0',
+    remoteIntfId: null,
+    description: null,
+    sysId: null,
+    addresses: []
   }
 ]
 

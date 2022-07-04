@@ -22,10 +22,11 @@ function trimTable (block) {
 
 function cdpParseTable (block) {
   /*
-  Parse a TRIMMED CDP table into a list of neighbors with attribs in each
+  Parse an UNTRIMMED CDP table into a list of neighbors with attribs in each
   */
   const result = []
-  const blockArray = block.split('\n')
+  const trimmed = trimTable(block)
+  const blockArray = trimmed.split('\n')
   blockArray.forEach(function (row) {
     // Grab the sysName and clean it from the row
     const sysName = row.match(/^\S*/)
@@ -56,7 +57,11 @@ function cdpParseTable (block) {
       ttl: ttl[1].trim(),
       sysCap,
       platform: platform[1],
-      remoteIntf: cleanedRow.trim()
+      remoteIntf: cleanedRow.trim(),
+      remoteIntfId: null,
+      description: null,
+      sysId: null,
+      addresses: []
     })
   })
   return result
@@ -116,14 +121,25 @@ function lldpParseTable (block) {
       localIntf: localIntf[1].trim(),
       ttl: ttl[1].trim(),
       sysCap,
-      remoteIntf: cleanedRow.trim()
+      remoteIntf: cleanedRow.trim(),
+      remoteIntfId: null,
+      platform: null,
+      description: null,
+      sysId: null,
+      addresses: []
     })
   })
   return result
 }
 
+const funcMap = {
+  'CDP-SHORT': cdpParseTable,
+  'LLDP-SHORT': lldpParseTable
+}
+
 module.exports = {
   trimTable,
   cdpParseTable,
-  lldpParseTable
+  lldpParseTable,
+  funcMap
 }
