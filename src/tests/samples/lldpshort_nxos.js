@@ -36,4 +36,112 @@ Total entries displayed: 15
 CORE1#
 `
 
-module.exports = { sample }
+const structured = [
+  {
+    sysName: 'CUMULUS_SWITCH_NUMBER_ONE',
+    localIntf: 'Eth1/1',
+    ttl: '120',
+    sysCap: ['B', 'R'],
+    remoteIntf: 'eth0'
+  },
+  {
+    sysName: 'CUMULUS_SWITCH_NUMBER_TWO',
+    localIntf: 'Eth1/2',
+    ttl: '120',
+    sysCap: ['B', 'R'],
+    remoteIntf: 'eth0'
+  },
+  {
+    sysName: 'CUMULUS_SWITCH_NUMBER_THREE',
+    localIntf: 'Eth1/3',
+    ttl: '120',
+    sysCap: ['B', 'R'],
+    remoteIntf: 'eth0'
+  },
+  {
+    sysName: 'CUMULUS_SWITCH_NUMBER_FOUR',
+    localIntf: 'Eth1/4',
+    ttl: '120',
+    sysCap: ['B', 'R'],
+    remoteIntf: 'eth0'
+  },
+  {
+    sysName: 'CUMULUS_SWITCH_NUMBER_NINE',
+    localIntf: 'Eth1/5',
+    ttl: '120',
+    sysCap: ['B', 'R'],
+    remoteIntf: 'eth0'
+  },
+  {
+    sysName: 'SW2.subdomain.example.com',
+    localIntf: 'Eth1/41',
+    ttl: '120',
+    sysCap: ['B'],
+    remoteIntf: 'Te1/1/3'
+  },
+  {
+    sysName: 'INT1.subdomain.example.com',
+    localIntf: 'Eth1/42',
+    ttl: '120',
+    sysCap: ['R'],
+    remoteIntf: 'Gi0/0/2'
+  },
+  {
+    sysName: 'INT2.subdomain.example.com',
+    localIntf: 'Eth1/43',
+    ttl: '120',
+    sysCap: ['R'],
+    remoteIntf: 'Gi0/0/2'
+  },
+  {
+    sysName: 'SW1.subdomain.example.com',
+    localIntf: 'Eth1/46',
+    ttl: '120',
+    sysCap: ['B'],
+    remoteIntf: 'Te1/0/1'
+  },
+  {
+    sysName: 'CORE2.subdomain.example.com',
+    localIntf: 'Eth1/47',
+    ttl: '120',
+    sysCap: ['B', 'R'],
+    remoteIntf: 'Ethernet1/47'
+  },
+  {
+    sysName: 'CORE2.subdomain.example.com',
+    localIntf: 'Eth1/48',
+    ttl: '120',
+    sysCap: ['B', 'R'],
+    remoteIntf: 'Ethernet1/48'
+  },
+  {
+    sysName: 'CUMULUS_SWITCH_NUMBER_FIVE',
+    localIntf: 'Eth1/49',
+    ttl: '120',
+    sysCap: ['B', 'R'],
+    remoteIntf: 'swp53'
+  },
+  {
+    sysName: 'CUMULUS_SWITCH_SIX',
+    localIntf: 'Eth1/50',
+    ttl: '120',
+    sysCap: ['B', 'R'],
+    remoteIntf: 'swp53'
+  },
+  {
+    sysName: 'CUMULUS_SWITCH_SEV',
+    localIntf: 'Eth1/51',
+    ttl: '120',
+    sysCap: ['B', 'R'],
+    remoteIntf: 'swp53'
+  },
+  {
+    sysName: 'CORE2.subdomain.example.com',
+    localIntf: 'Eth1/53',
+    ttl: '120',
+    sysCap: ['B', 'R'],
+    remoteIntf: 'Ethernet1/53'
+  }
+]
+
+module.exports = { sample, structured }

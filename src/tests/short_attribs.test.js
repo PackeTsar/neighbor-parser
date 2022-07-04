@@ -48,3 +48,10 @@ test('Trim and parse CDP tables', () => {
     expect(neighbors).toStrictEqual(sample.structured)
   })
 })
+
+test('Trim and parse LLDP tables', () => {
+  sampleArray.slice(3).forEach(function (sample) {
+    const neighbors = attribs.lldpParseTable(sample.sample)
+    expect(neighbors).toStrictEqual(sample.structured)
+  })
+})

@@ -15,4 +15,35 @@ Total entries displayed: 4
 SW1#
 `
 
-module.exports = { sample }
+const structured = [
+  {
+    sysName: 'CORE1.subdomain.exam',
+    localIntf: 'Te1/0/1',
+    ttl: '120',
+    sysCap: ['B', 'R'],
+    remoteIntf: 'Ethernet1/46'
+  },
+  {
+    sysName: 'INT1.subdomain.examp',
+    localIntf: 'Gi1/0/10',
+    ttl: '120',
+    sysCap: ['R'],
+    remoteIntf: 'Gi0'
+  },
+  {
+    sysName: 'INT2.subdomain.examp',
+    localIntf: 'Gi2/0/10',
+    ttl: '120',
+    sysCap: ['R'],
+    remoteIntf: 'Gi0'
+  },
+  {
+    sysName: 'CORE2.subdomain.exam',
+    localIntf: 'Te2/0/1',
+    ttl: '120',
+    sysCap: ['B', 'R'],
+    remoteIntf: 'Ethernet1/46'
+  }
+]
+
+module.exports = { sample, structured }

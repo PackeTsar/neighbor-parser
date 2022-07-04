@@ -22,7 +22,7 @@ function trimTable (block) {
 
 function cdpParseTable (block) {
   /*
-  Parse a trimmed CDP table into a list of neighbors with attribs in each
+  Parse a TRIMMED CDP table into a list of neighbors with attribs in each
   */
   const result = []
   const blockArray = block.split('\n')
@@ -62,7 +62,68 @@ function cdpParseTable (block) {
   return result
 }
 
+function lldpParseTable (block) {
+  /*
+  Parse an UNTRIMMED LLDP table into a list of neighbors with attribs in each
+  */
+  const result = []
+  // Trim the top and bottom off of the table
+  const topBottomTrimmed = split.getShortBlocks(block)[0]
+  // If the rows DO NOT wrap and overflow to the next line
+  if (!topBottomTrimmed.match(/\n[ ]{4}/)) {
+    // Grab the header from the table
+    const header = block.match(/Device ID.*?Port ID/)[0]
+    // Check how many characters before the "Local Intf" columns starts
+    const localIntfOffset = header.match(/Local/).index
+    // Grab a fully trimmed version of the table (no header or footer)
+    const trimmed = trimTable(block)
+    const rowArray = [] // Will write modified rows to this array
+    // For each row in the table
+    trimmed.split('\n').forEach(function (row) {
+      // Insert four spaces inbetween the merged sysName and localIntf values
+      //     This will be used to detect transitions between columns
+      rowArray.push(row.slice(0, localIntfOffset) + '    ' + row.slice(localIntfOffset))
+    })
+    var trimmedBlock = rowArray.join('\n')
+  } else { // If the lines DO wrap and overflow to the next line, treat regular
+    trimmedBlock = trimTable(block)
+  }
+  const blockArray = trimmedBlock.split('\n')
+  blockArray.forEach(function (row) {
+    // Grab the sysName and clean it from the row
+    const sysName = row.match(/^\S*/)
+    let cleanedRow = row.replace(sysName[0], '')
+    // Grab the localIntf and clean it from the row
+    const localIntf = cleanedRow.match(/^[ ]*(\S*)/)
+    cleanedRow = cleanedRow.replace(localIntf[0], '')
+    // Grab the ttl and clean it from the row
+    const ttl = cleanedRow.match(/^[ ]*([0-9]*)/)
+    cleanedRow = cleanedRow.replace(ttl[0], '')
+    // Grab the sysCap and clean it from the row
+    const sysCapObj = cleanedRow.match(/^[ ]*([A-Za-z,]+)/)
+    if (sysCapObj) { // It's possible there are no capabilities listed
+      const sysCapLong = sysCapObj[0] // '       A,B,C,d' or '    ABCd'
+      const sysCapTrimmed = sysCapLong.trim() // 'A,B,C,d' or 'ABCd'
+      const sysCapCommas = sysCapTrimmed.split('') // Create the array ['A', 'B'...]
+      var sysCap = sysCapCommas.filter(a => a !== ',') // Remove comma entries in the array
+      cleanedRow = cleanedRow.replace(sysCapLong, '')
+    } else {
+      sysCap = []
+    }
+    // Add this neighbor to the result
+    result.push({
+      sysName: sysName[0],
+      localIntf: localIntf[1].trim(),
+      ttl: ttl[1].trim(),
+      sysCap,
+      remoteIntf: cleanedRow.trim()
+    })
+  })
+  return result
+}
+
 module.exports = {
   trimTable,
-  cdpParseTable
+  cdpParseTable,
+  lldpParseTable
 }
