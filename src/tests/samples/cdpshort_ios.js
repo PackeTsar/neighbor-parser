@@ -32,4 +32,95 @@ Total cdp entries displayed : 11
 SW1#
 `
 
-module.exports = { sample }
+const structured = [
+  {
+    sysName: 'INT2.example.com',
+    localIntf: 'Gig 2/0/10',
+    ttl: '142',
+    sysCap: ['R', 'I'],
+    platform: 'ASR1001-X',
+    remoteIntf: 'Gig 0'
+  },
+  {
+    sysName: 'INT1.example.com',
+    localIntf: 'Gig 1/0/10',
+    ttl: '146',
+    sysCap: ['R', 'I'],
+    platform: 'ASR1001-X',
+    remoteIntf: 'Gig 0'
+  },
+  {
+    sysName: 'CORE2.example.com(SERIALNUM)',
+    localIntf: 'Ten 2/0/1',
+    ttl: '134',
+    sysCap: ['R', 'S', 'I', 'C'],
+    platform: 'N9K-C9318',
+    remoteIntf: 'Eth 1/46'
+  },
+  {
+    sysName: 'ESX9.example.com',
+    localIntf: 'Gig 1/0/13',
+    ttl: '173',
+    sysCap: ['S'],
+    platform: 'VMware',
+    remoteIntf: 'ES vmnic0'
+  },
+  {
+    sysName: 'ESX9.example.com',
+    localIntf: 'Gig 2/0/13',
+    ttl: '173',
+    sysCap: ['S'],
+    platform: 'VMware',
+    remoteIntf: 'ES vmnic1'
+  },
+  {
+    sysName: 'CORE1.example.com(SERIALNUM)',
+    localIntf: 'Ten 1/0/1',
+    ttl: '134',
+    sysCap: ['R', 'S', 'I', 'C'],
+    platform: 'N9K-C9318',
+    remoteIntf: 'Eth 1/46'
+  },
+  {
+    sysName: 'ROUTER4.example.com',
+    localIntf: 'Gig 1/0/17',
+    ttl: '135',
+    sysCap: ['R', 'B', 'S'],
+    platform: 'CISCO2901',
+    remoteIntf: 'Gig 0/0'
+  },
+  {
+    sysName: 'ROUTER5.example.com',
+    localIntf: 'Gig 2/0/17',
+    ttl: '131',
+    sysCap: ['R', 'B', 'S'],
+    platform: 'CISCO2901',
+    remoteIntf: 'Gig 0/0'
+  },
+  {
+    sysName: 'ROUTER3.example.com',
+    localIntf: 'Gig 1/0/14',
+    ttl: '133',
+    sysCap: ['R', 'B', 'S'],
+    platform: 'CISCO2901',
+    remoteIntf: 'Gig 0/0'
+  },
+  {
+    sysName: 'MDS1.example.com(SERIALNUM)',
+    localIntf: 'Gig 1/0/11',
+    ttl: '167',
+    sysCap: ['R', 'S', 'C'],
+    platform: 'DS-C9148-',
+    remoteIntf: 'mgmt0'
+  },
+  {
+    sysName: 'MDS2.example.com(SERIALNUM)',
+    localIntf: 'Gig 2/0/11',
+    ttl: '148',
+    sysCap: ['R', 'S', 'C'],
+    platform: 'DS-C9148-',
+    remoteIntf: 'mgmt0'
+  }
+]
+
+module.exports = { sample, structured }

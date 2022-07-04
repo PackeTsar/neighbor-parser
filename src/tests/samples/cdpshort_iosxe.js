@@ -20,4 +20,63 @@ Total cdp entries displayed : 7
 SW2#
 `
 
-module.exports = { sample }
+const structured = [
+  {
+    sysName: '000000000001',
+    localIntf: 'Gig 1/0/10',
+    ttl: '114',
+    sysCap: [],
+    platform: 'Meraki',
+    remoteIntf: 'MV Port 0'
+  },
+  {
+    sysName: 'WAP1',
+    localIntf: 'Gig 1/0/9',
+    ttl: '149',
+    sysCap: ['R', 'T'],
+    platform: 'AIR-AP380',
+    remoteIntf: 'Gig 0'
+  },
+  {
+    sysName: 'CORE2.example.com(SERIALNUM)',
+    localIntf: 'Ten 1/1/4',
+    ttl: '152',
+    sysCap: ['R', 'S', 'I', 'C'],
+    platform: 'N9K-C9318',
+    remoteIntf: 'Eth 1/41'
+  },
+  {
+    sysName: 'CORE1.example.com(SERIALNUM)',
+    localIntf: 'Ten 1/1/3',
+    ttl: '152',
+    sysCap: ['R', 'S', 'I', 'C'],
+    platform: 'N9K-C9318',
+    remoteIntf: 'Eth 1/41'
+  },
+  {
+    sysName: 'WAP2',
+    localIntf: 'Gig 1/0/48',
+    ttl: '161',
+    sysCap: ['R', 'T'],
+    platform: 'Unknown',
+    remoteIntf: 'Gig 0'
+  },
+  {
+    sysName: '000000000002',
+    localIntf: 'Gig 1/0/40',
+    ttl: '179',
+    sysCap: [],
+    platform: 'Meraki',
+    remoteIntf: 'MV Port 0'
+  },
+  {
+    sysName: 'ROUTER1.example.com',
+    localIntf: 'Gig 1/0/44',
+    ttl: '159',
+    sysCap: ['R', 'B', 'S'],
+    platform: 'CISCO2901',
+    remoteIntf: 'Gig 0/0'
+  }
+]
+
+module.exports = { sample, structured }
