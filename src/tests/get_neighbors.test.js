@@ -1,8 +1,11 @@
 const neighbors = require('../neighbors')
-const sample = require('./samples/mixed_ios_multiple')
+const fullSample = require('./samples/mixed_ios_multiple')
+const shortCdpSample = require('./samples/cdpshort_mixed')
+const shortLldpSample = require('./samples/lldpshort_mixed')
 
 test('Fully parse interspersed neighbor blocks', () => {
-  const neighborObjs = neighbors.getNeighbors(sample.interspersedSample)
+  const sample = fullSample.interspersedSample + shortCdpSample.appendedSample + shortLldpSample.appendedSample
+  const neighborObjs = neighbors.getNeighbors(sample)
   expect(neighborObjs[0].type).toBe('LLDP')
   expect(neighborObjs[1].localIntf).toBe('Gi1/0/10')
   expect(neighborObjs[2].sysName).toBe('STOR02-ct1')
@@ -14,4 +17,9 @@ test('Fully parse interspersed neighbor blocks', () => {
   expect(neighborObjs[8].sysCap).toBe('Router Switch IGMP CVTA phone port')
   expect(neighborObjs[8].addresses).toStrictEqual(['10.0.16.3'])
   expect(neighborObjs[9].type).toBe('CDP')
+  expect(neighborObjs[neighborObjs.length - 1].sysName).toBe('CORE2.subdomain.example.com')
+  expect(neighborObjs[neighborObjs.length - 1].localIntf).toBe('Eth1/53')
+  expect(neighborObjs[neighborObjs.length - 1].ttl).toBe('120')
+  expect(neighborObjs[neighborObjs.length - 1].sysCap).toStrictEqual(['B', 'R'])
+  expect(neighborObjs[neighborObjs.length - 1].remoteIntf).toBe('Ethernet1/53')
 })
