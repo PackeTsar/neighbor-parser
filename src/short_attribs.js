@@ -28,6 +28,7 @@ function cdpParseTable (block) {
   const trimmed = trimTable(block)
   const blockArray = trimmed.split('\n')
   blockArray.forEach(function (row) {
+    let sysCap = []
     // Grab the sysName and clean it from the row
     const sysName = row.match(/^\S*/)
     let cleanedRow = row.replace(sysName[0], '')
@@ -42,10 +43,8 @@ function cdpParseTable (block) {
     if (sysCapObj) { // It's possible there are no capabilities listed
       const sysCapLong = sysCapObj[0] // '       A B C d'
       const sysCapTrimmed = sysCapLong.trim() // 'A B C d'
-      var sysCap = sysCapTrimmed.split(' ') // Create the array ['A', 'B'...]
+      sysCap = sysCapTrimmed.split(' ') // Create the array ['A', 'B'...]
       cleanedRow = cleanedRow.replace(sysCapLong, '')
-    } else {
-      sysCap = []
     }
     // Grab the localIntf and clean it from the row
     const platform = cleanedRow.match(/^[ ]*(\S*)/)
@@ -71,6 +70,7 @@ function lldpParseTable (block) {
   /*
   Parse an UNTRIMMED LLDP table into a list of neighbors with attribs in each
   */
+  let trimmedBlock = '' // Initialize the trimmed block here for linting
   const result = []
   // Trim the top and bottom off of the table
   const topBottomTrimmed = split.getShortBlocks(block)[0]
@@ -89,11 +89,12 @@ function lldpParseTable (block) {
       //     This will be used to detect transitions between columns
       rowArray.push(row.slice(0, localIntfOffset) + '    ' + row.slice(localIntfOffset))
     })
-    var trimmedBlock = rowArray.join('\n')
+    trimmedBlock = rowArray.join('\n')
   } else { // If the lines DO wrap and overflow to the next line, treat regular
     trimmedBlock = trimTable(block)
   }
   const blockArray = trimmedBlock.split('\n')
+  let sysCap = [] // Initialize the sysCap array here for linting purposes
   blockArray.forEach(function (row) {
     // Grab the sysName and clean it from the row
     const sysName = row.match(/^\S*/)
@@ -110,7 +111,7 @@ function lldpParseTable (block) {
       const sysCapLong = sysCapObj[0] // '       A,B,C,d' or '    ABCd'
       const sysCapTrimmed = sysCapLong.trim() // 'A,B,C,d' or 'ABCd'
       const sysCapCommas = sysCapTrimmed.split('') // Create the array ['A', 'B'...]
-      var sysCap = sysCapCommas.filter(a => a !== ',') // Remove comma entries in the array
+      sysCap = sysCapCommas.filter(a => a !== ',') // Remove comma entries in the array
       cleanedRow = cleanedRow.replace(sysCapLong, '')
     } else {
       sysCap = []
