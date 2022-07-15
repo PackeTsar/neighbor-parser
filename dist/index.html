@@ -82,10 +82,31 @@
               <hr class="border-2 border-top border-secondary">
               <div class="fs-6">
                 <h4><i class="fa-solid fa-flask me-2"></i>Try It</h4>
-                <p>Copy one [or both] of the examples below and paste it into the "Neighbor Output" field below to convert it to a table</p>
-                <h5 class="mt-4" ><span class="badge bg-primary ">CDP</span> Example: <code>show cdp neighbors detail</code></h5>
-                <div class="form-group textarea-container highlight">
-                  <textarea class="form-control example-textarea highlight bg-light" rows="8" readonly>SWITCH#show cdp neighbors detail
+                <p>Copy one or more of the examples below and paste it into the "Neighbor Output" field below to convert it to a table</p>
+                <div class="accordion" id="outputExamples">
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="cdpDetailHeader">
+                      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#cdpDetailExample" aria-expanded="true" aria-controls="cdpDetailExample">
+                        <div class="container">
+                          <div class="row">
+                            <div class="col d-flex align-items-center">
+                              <h5 class="mt-1">Example: <code>show cdp neighbors detail</code></h5>
+                            </div>
+                            <div class="d-none d-md-block col col-md-1">
+                              <div class="d-flex align-items-center justify-content-end">
+                                <div class="flex-shrink-1 pe-2">
+                                  <h5 class="mt-1"><span class="badge bg-primary ">CDP</span></h5>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </button>
+                    </h2>
+                    <div id="cdpDetailExample" class="accordion-collapse collapse show" aria-labelledby="cdpDetailHeader" data-bs-parent="#outputExamples">
+                      <div class="accordion-body">
+                        <div class="form-group textarea-container highlight">
+                          <textarea class="form-control example-textarea highlight bg-light" rows="8" readonly>SWITCH#show cdp neighbors detail
 -------------------------
 Device ID: INT2.example.com
 Entry address(es):
@@ -283,10 +304,33 @@ Management address(es):
 
 Total cdp entries displayed : 11
 SWITCH#</textarea>
-                </div>
-                <h5 class="mt-4"><span class="badge bg-success ">LLDP</span> Example: <code>show lldp neighbors detail</code></h5>
-                <div class="form-group textarea-container highlight">
-                  <textarea class="form-control example-textarea highlight bg-light" rows="8" readonly>SW1#show lldp neighbors detail
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="lldpDetailHeader">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#lldpDetailExample" aria-expanded="false" aria-controls="lldpDetailExample">
+                        <div class="container">
+                          <div class="row">
+                            <div class="col d-flex align-items-center">
+                              <h5 class="mt-1">Example: <code>show lldp neighbors detail</code></h5>
+                            </div>
+                            <div class="d-none d-md-block col col-md-1">
+                              <div class="d-flex align-items-center justify-content-end">
+                                <div class="flex-shrink-1 pe-2">
+                                  <h5 class="mt-1"><span class="badge bg-success ">LLDP</span></h5>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </button>
+                    </h2>
+                    <div id="lldpDetailExample" class="accordion-collapse collapse" aria-labelledby="lldpDetailHeader" data-bs-parent="#outputExamples">
+                      <div class="accordion-body">
+                        <div class="form-group textarea-container highlight">
+                          <textarea class="form-control example-textarea highlight bg-light" rows="8" readonly>SW1#show lldp neighbors detail
 ------------------------------------------------
 Local Intf: Te1/0/1
 Chassis id: 0000.0000.0001
@@ -434,10 +478,33 @@ Total entries displayed: 6
 
 SW1#
 SW1#</textarea>
-                </div>
-                <h5 class="mt-4"><span class="badge bg-primary ">CDP-SHORT</span> Example: <code>show cdp neighbors</code></h5>
-                <div class="form-group textarea-container highlight">
-                  <textarea class="form-control example-textarea highlight bg-light" rows="8" readonly>SW2#show cdp neighbors
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="cdpShortHeader">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#cdpShortExample" aria-expanded="false" aria-controls="cdpShortExample">
+                        <div class="container">
+                          <div class="row">
+                            <div class="col d-flex align-items-center">
+                              <h5 class="mt-1">Example: <code>show cdp neighbors</code></h5>
+                            </div>
+                            <div class="d-none d-md-block col col-md-1">
+                              <div class="d-flex align-items-center justify-content-end">
+                                <div class="flex-shrink-1 pe-2">
+                                  <h5 class="mt-1"><span class="badge bg-primary ">CDP-SHORT</span></h5>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </button>
+                    </h2>
+                    <div id="cdpShortExample" class="accordion-collapse collapse" aria-labelledby="cdpShortHeader" data-bs-parent="#outputExamples">
+                      <div class="accordion-body">
+                        <div class="form-group textarea-container highlight">
+                          <textarea class="form-control example-textarea highlight bg-light" rows="8" readonly>SW2#show cdp neighbors
 Capability Codes: R - Router, T - Trans Bridge, B - Source Route Bridge
                   S - Switch, H - Host, I - IGMP, r - Repeater, P - Phone,
                   D - Remote, C - CVTA, M - Two-port Mac Relay
@@ -456,10 +523,33 @@ ROUTER1.example.com
 
 Total cdp entries displayed : 7
 SW2#</textarea>
-                </div>
-                <h5 class="mt-4"><span class="badge bg-success ">LLDP-SHORT</span> Example: <code>show lldp neighbors</code></h5>
-                <div class="form-group textarea-container highlight">
-                  <textarea class="form-control example-textarea highlight bg-light" rows="8" readonly>SW2#show lldp neighbors
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="lldpShortHeader">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#lldpShortExample" aria-expanded="false" aria-controls="lldpShortExample">
+                        <div class="container">
+                          <div class="row">
+                            <div class="col d-flex align-items-center">
+                              <h5 class="mt-1">Example: <code>show lldp neighbors</code></h5>
+                            </div>
+                            <div class="d-none d-md-block col col-md-1">
+                              <div class="d-flex align-items-center justify-content-end">
+                                <div class="flex-shrink-1 pe-2">
+                                  <h5 class="mt-1"><span class="badge bg-success ">LLDP-SHORT</span></h5>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </button>
+                    </h2>
+                    <div id="lldpShortExample" class="accordion-collapse collapse" aria-labelledby="lldpShortHeader" data-bs-parent="#outputExamples">
+                      <div class="accordion-body">
+                        <div class="form-group textarea-container highlight">
+                          <textarea class="form-control example-textarea highlight bg-light" rows="8" readonly>SW2#show lldp neighbors
 Capability codes:
     (R) Router, (B) Bridge, (T) Telephone, (C) DOCSIS Cable Device
     (W) WLAN Access Point, (P) Repeater, (S) Station, (O) Other
@@ -476,6 +566,10 @@ CORE2.subdomain.examTe1/1/4        120        B,R             Ethernet1/41
 Total entries displayed: 7
 
 SW2#</textarea>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
               <hr class="border-2 border-top border-secondary">
