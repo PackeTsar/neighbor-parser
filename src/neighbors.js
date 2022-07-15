@@ -5,9 +5,9 @@ const getShortAttrib = require('./short_attribs')
 function getNeighbors (block) {
   let result = []
   const blockObjs = split.cleanArray(split.splitDetect(block))
-  for (let i = 0; i < blockObjs.length; i++) {
-    const data = blockObjs[i].data
-    const type = blockObjs[i].type
+  blockObjs.forEach(function (blockObj) {
+    const data = blockObj.data
+    const type = blockObj.type
     if (type.includes('SHORT')) {
       const neighborArray = getShortAttrib.funcMap[type](data)
       neighborArray.forEach(function (n) {
@@ -29,7 +29,7 @@ function getNeighbors (block) {
         addresses: getAttrib.funcMap[type].addresses(data)
       })
     }
-  };
+  })
   return result
 };
 
