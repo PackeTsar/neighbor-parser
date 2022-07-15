@@ -56,7 +56,13 @@
               <div class="fs-6 fw-light">
                 <h4><i class="fa-solid fa-list me-2"></i>How To Use</h4>
                 <ol class="list" style="font-weight: bold;">
-                  <li class="mb-3"><span>Run either <code>show cdp neighbors detail</code> or <code>show lldp neighbors detail</code> on your Cisco device</span></li>
+                  <li class="mb-3"><span>Run one or more of the below commands on your Cisco device</span></li>
+                  <ul>
+                    <li class="mb-2"><span><code>show cdp neighbors</code></span></li>
+                    <li class="mb-2"><span><code>show cdp neighbors detail</code></span></li>
+                    <li class="mb-2"><span><code>show lldp neighbors</code></span></li>
+                    <li class="mb-2"><span><code>show lldp neighbors detail</code></span></li>
+                  </ul>
                   <li class="mb-3"><span>Copy the text output from the device</span></li>
                   <li class="mb-3"><span>Paste the output in the field below</span></li>
                   <li class="mb-3"><span>Adjust the neighbor table by</span>
@@ -429,6 +435,89 @@ Total entries displayed: 6
 SW1#
 SW1#</textarea>
                 </div>
+                <h5 class="mt-4"><span class="badge bg-primary ">CDP-SHORT</span> Example: <code>show cdp neighbors</code></h5>
+                <div class="form-group textarea-container highlight">
+                  <textarea class="form-control example-textarea highlight bg-light" rows="8" readonly>SW2#show cdp neighbors
+Capability Codes: R - Router, T - Trans Bridge, B - Source Route Bridge
+                  S - Switch, H - Host, I - IGMP, r - Repeater, P - Phone,
+                  D - Remote, C - CVTA, M - Two-port Mac Relay
+
+Device ID        Local Intrfce     Holdtme    Capability  Platform  Port ID
+000000000001     Gig 1/0/10        114                    Meraki MV Port 0
+WAP1             Gig 1/0/9         149              R T   AIR-AP380 Gig 0
+CORE2.example.com(SERIALNUM)
+                 Ten 1/1/4         152            R S I C N9K-C9318 Eth 1/41
+CORE1.example.com(SERIALNUM)
+                 Ten 1/1/3         152            R S I C N9K-C9318 Eth 1/41
+WAP2             Gig 1/0/48        161              R T   Unknown   Gig 0
+000000000002     Gig 1/0/40        179                    Meraki MV Port 0
+ROUTER1.example.com
+                 Gig 1/0/44        159             R B S  CISCO2901 Gig 0/0
+
+Total cdp entries displayed : 7
+SW2#</textarea>
+                </div>
+                <h5 class="mt-4"><span class="badge bg-success ">LLDP-SHORT</span> Example: <code>show lldp neighbors</code></h5>
+                <div class="form-group textarea-container highlight">
+                  <textarea class="form-control example-textarea highlight bg-light" rows="8" readonly>SW2#show lldp neighbors
+Capability codes:
+    (R) Router, (B) Bridge, (T) Telephone, (C) DOCSIS Cable Device
+    (W) WLAN Access Point, (P) Repeater, (S) Station, (O) Other
+
+Device ID           Local Intf     Hold-time  Capability      Port ID
+CAM1                Gi1/0/40       120                        0
+CORE1.subdomain.examTe1/1/3        120        B,R             Ethernet1/41
+CAM2                Gi1/0/10       120                        0
+FW1                 Gi1/0/1        120        R               0
+WAP1                Gi1/0/9        120        B               0
+WAP2                Gi1/0/48       120        B               0
+CORE2.subdomain.examTe1/1/4        120        B,R             Ethernet1/41
+
+Total entries displayed: 7
+
+SW2#</textarea>
+                </div>
+              </div>
+              <hr class="border-2 border-top border-secondary">
+              <div class="fs-6">
+                <h4><i class="fa-solid fa-magnifying-glass me-2"></i>Platform Support</h4>
+                <p>Command output from these platforms has been tested against Neighbor Parser. Other platforms may work, but have not been explicitly tested.</p>
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th></th>
+                      <th>IOS (Classic)</th>
+                      <th>IOS-XE</th>
+                      <th>NX-OS</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th><code>show cdp neighbors</code></th>
+                      <td class="text-success"><i class="fa-solid fa-xl fa-circle-check"></i></td>
+                      <td class="text-success"><i class="fa-solid fa-xl fa-circle-check"></i></td>
+                      <td class="text-success"><i class="fa-solid fa-xl fa-circle-check"></i></td>
+                    </tr>
+                    <tr>
+                      <th><code>show cdp neighbors detail</code></th>
+                      <td class="text-success"><i class="fa-solid fa-xl fa-circle-check"></i></td>
+                      <td class="text-success"><i class="fa-solid fa-xl fa-circle-check"></i></td>
+                      <td class="text-success"><i class="fa-solid fa-xl fa-circle-check"></i></td>
+                    </tr>
+                    <tr>
+                      <th><code>show lldp neighbors</code></th>
+                      <td class="text-success"><i class="fa-solid fa-xl fa-circle-check"></i></td>
+                      <td class="text-success"><i class="fa-solid fa-xl fa-circle-check"></i></td>
+                      <td class="text-success"><i class="fa-solid fa-xl fa-circle-check"></i></td>
+                    </tr>
+                    <tr>
+                      <th><code>show lldp neighbors detail</code></th>
+                      <td class="text-success"><i class="fa-solid fa-xl fa-circle-check"></i></td>
+                      <td class="text-success"><i class="fa-solid fa-xl fa-circle-check"></i></td>
+                      <td class="text-success"><i class="fa-solid fa-xl fa-circle-check"></i></td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
               <hr class="border-2 border-top border-secondary">
               <div class="fs-6">
