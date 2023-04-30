@@ -59,3 +59,12 @@ div.highlight button {
   top: 0;
   right: 0;
 }
+#diagram_wrapper {
+  resize: vertical;
+  overflow: auto;
+}
+.tooltip-inner {
+  max-width: 800px !important;
+  width: max-content !important;
+  text-align: left;
+  }
