@@ -51,4 +51,4 @@ function getNeighbors (block) {
   return result
 };
 
-module.exports = { getNeighbors }
+module.exports = { getNeighbors, shorten }
