@@ -2,6 +2,20 @@ const split = require('./split_detect')
 const getAttrib = require('./attribs')
 const getShortAttrib = require('./short_attribs')
 
+function shortName (intfName) {
+  /*
+  Create a shortened name for an interface by truncating the alpha characters
+  */
+  if (intfName.length < 6) { // If the name is already 5 chars or less
+    return intfName // Use it, no need to shorten
+  }
+  // Grab the beginining alpha characters
+  const fullAlpha = intfName.match(/^([A-Za-z]+)/)
+  // Swap out the full alpha with just the first two characters
+  const result = intfName.replace(fullAlpha[0], fullAlpha[0].slice(0, 2))
+  return result
+};
+
 function getNeighbors (block) {
   let result = []
   const blockObjs = split.cleanArray(split.splitDetect(block))
@@ -18,8 +32,10 @@ function getNeighbors (block) {
       result.push({
         type, // Shorthand for "type: type"
         localIntf: getAttrib.funcMap[type].localIntf(data),
+        localIntfShort: shortName(getAttrib.funcMap[type].localIntf(data)),
         sysName: getAttrib.funcMap[type].sysName(data),
         remoteIntf: getAttrib.funcMap[type].remoteIntf(data),
+        remoteIntfShort: shortName(getAttrib.funcMap[type].remoteIntf(data)),
         remoteIntfId: getAttrib.funcMap[type].remoteIntfId(data),
         platform: getAttrib.funcMap[type].platform(data),
         description: getAttrib.funcMap[type].description(data),
