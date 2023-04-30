@@ -5,6 +5,7 @@ const cdpNxos = require('./samples/cdpshort_nxos')
 const lldpIos = require('./samples/lldpshort_ios')
 const lldpIosxe = require('./samples/lldpshort_iosxe')
 const lldpNxos = require('./samples/lldpshort_nxos')
+const lldpNxosWS = require('./samples/lldpshort_nxos_whitespace')
 const cdpDetail = require('./samples/cdp_ios_multiple_various')
 const lldpDetail = require('./samples/lldp_ios_multiple_various')
 
@@ -16,7 +17,8 @@ const sampleArray = [
   lldpDetail, // +6  LLDP
   lldpIos, //    +1  LLDP-SHORT
   lldpIosxe, //  +1  LLDP-SHORT
-  lldpNxos//     +1  LLDP-SHORT
+  lldpNxos, //     +1  LLDP-SHORT
+  lldpNxosWS //   +1  LLDP
 ]
 
 let appendedSample = ''
@@ -26,7 +28,7 @@ sampleArray.forEach(function (sample) {
 
 test('Split and detect mixed short and details samples', () => {
   const blocks = split.split(appendedSample)
-  expect(blocks.length).toBe(26)
+  expect(blocks.length).toBe(27)
   const types = blocks.map(block => split.detect(block))
   expect(types).toStrictEqual([
     null,
@@ -39,6 +41,7 @@ test('Split and detect mixed short and details samples', () => {
     'LLDP', 'LLDP', 'LLDP',
     'LLDP', 'LLDP', 'LLDP',
     null,
-    'LLDP-SHORT', 'LLDP-SHORT', 'LLDP-SHORT'
+    'LLDP-SHORT', 'LLDP-SHORT', 'LLDP-SHORT',
+    'LLDP-SHORT'
   ])
 })

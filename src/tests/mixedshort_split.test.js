@@ -5,6 +5,7 @@ const cdpNxos = require('./samples/cdpshort_nxos')
 const lldpIos = require('./samples/lldpshort_ios')
 const lldpIosxe = require('./samples/lldpshort_iosxe')
 const lldpNxos = require('./samples/lldpshort_nxos')
+const lldpNxosWS = require('./samples/lldpshort_nxos_whitespace')
 const nxosDetail = require('./samples/lldp_nxos_empty_blocks')
 
 const sampleArray = [
@@ -13,7 +14,8 @@ const sampleArray = [
   cdpNxos,
   lldpIos,
   lldpIosxe,
-  lldpNxos
+  lldpNxos,
+  lldpNxosWS
 ]
 
 test('Check insertion of delineators above table headers', () => {
