@@ -201,7 +201,11 @@ function drawNeighbor (graph, selfNeighbor, neighborObj) {
     neighbor.resize(100, 40) // Set an initial size, width will get changed.
     // Put together the neighbor's label attributes
     const labelAttrs = {
-      text: neighborObj.sysName,
+      // If the sysName is the string 'null', then use the sysId
+      text: (neighborObj.sysName !== 'null')
+        ? neighborObj.sysName
+        : neighborObj.sysId,
+      // Set text attributes
       fill: 'white',
       fontSize: 14
     }
@@ -251,7 +255,10 @@ function drawNeighbor (graph, selfNeighbor, neighborObj) {
   link.appendLabel({
     attrs: {
       text: {
-        text: neighborObj.remoteIntfShort
+        // If the remoteIntfShort is the string 'null', then use remoteIntfId
+        text: (neighborObj.remoteIntfShort !== 'null')
+          ? neighborObj.remoteIntfShort
+          : neighborObj.remoteIntfId
       }
     },
     position: {
