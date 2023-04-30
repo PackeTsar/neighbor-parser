@@ -9,6 +9,13 @@
     <link href="static/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
     <link href="static/DataTables/datatables.min.css" rel="stylesheet" />
     <link href="static/fontawesome/css/all.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="static/JointJS/dist/joint.css" />
+    <script src="static/JQuery/jquery-3.6.4.min.js"></script>
+    <script src="static/Lodash/lodash.min.js"></script>
+    <script src="static/Backbone/backbone-min.js"></script>
+    <script src="static/Dagre/dagre.min.js"></script>
+    <script src="static/Dagre/graphlib.min.js"></script>
+    <script src="static/JointJS/dist/joint.js"></script>
   </head>
   <body>
 
@@ -659,6 +666,23 @@ SW2#</textarea>
           <div class="form-group">
             <textarea id="neighborData" class="form-control input-textarea" rows="10" placeholder='Paste output from "show cdp neighbors detail" or "show lldp neighbors detail" here' autofocus></textarea>
           </div>
+        </div>
+      </div>
+
+      <div class="card mt-5 mb-5">
+        <div class="card-header">
+          <div class="container">
+            <div class="row">
+              <div class="col-xl"></div>
+              <div class="col d-flex align-items-center justify-content-center">
+                <span class="h5 mb-0 text-center"><i class="fa-solid fa-diagram-project me-2"></i>Diagram</span>
+              </div>
+              <div class="col-xl"></div>
+            </div>
+          </div>
+        </div>
+        <div class="card-body" id="diagram_wrapper">
+          <div id="diagram"></div>
         </div>
       </div>
 
