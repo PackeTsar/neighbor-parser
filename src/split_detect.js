@@ -25,7 +25,7 @@ function getShortBlocks (block) {
       1. "Total entries displayed" is encountered, or
       2. "Total cdp entries displayed" is encountered
   */
-  return block.match(/Device( |-)ID[ ]*Local Int(r)?f(ce)?[^\n]*?Port ID\n[^\n].*?Total (cdp )?entries displayed/gs)
+  return block.match(/Device( |-)ID[ ]*Local Int(r)?f(ce)?[^\n]*?Port ID[ ]*\n[^\n].*?Total (cdp )?entries displayed/gs)
 };
 
 function insertDelineators (block) {

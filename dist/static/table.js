@@ -1,6 +1,6 @@
 /* global $ */
 $(document).ready(function () {
-  var table = $('#neighborTable').DataTable({
+  const table = $('#neighborTable').DataTable({
     dom: 'ti',
     searching: true,
     paging: false,
@@ -17,7 +17,7 @@ $(document).ready(function () {
         data: 'type',
         // Render badges for CDP/LLDP types for visualization
         render: function (data, type, row, meta) {
-          var style = 'danger'
+          let style = 'danger'
           if (data === 'CDP') {
             style = 'primary'
           } else if (data === 'LLDP') {
@@ -31,8 +31,10 @@ $(document).ready(function () {
         }
       },
       { data: 'localIntf' },
+      { data: 'localIntfShort', visible: false },
       { data: 'sysName' },
       { data: 'remoteIntf' },
+      { data: 'remoteIntfShort', visible: false },
       { data: 'remoteIntfId', visible: false },
       { data: 'platform' },
       { data: 'description', visible: false },
@@ -65,34 +67,6 @@ $(document).ready(function () {
       }
     ]
   }).container().appendTo($('#control_buttons'))
-  table.row.add({
-    num: '1',
-    type: 'CDP',
-    localIntf: 'GigabitEthernet1/0/1',
-    sysName: 'WAP1',
-    remoteIntf: 'GigabitEthernet0',
-    remoteIntfId: null,
-    platform: 'AIR-AP3802I-B-K9',
-    description: 'Cisco AP Software, ap3g3-k9w8 Version: 8.10.151.0',
-    ttl: '100 sec',
-    sysId: null,
-    sysCap: null,
-    addresses: ['10.10.10.11', 'FE80::11']
-  })
-  table.row.add({
-    num: '2',
-    type: 'LLDP',
-    localIntf: 'Gi1/0/2',
-    sysName: 'WAP2',
-    remoteIntf: 'eth0',
-    remoteIntfId: '0',
-    platform: null,
-    description: 'Cisco AP Software, ap3g3-k9w8 Version: 8.10.151.0',
-    ttl: '100 seconds',
-    sysId: '0000.0000.0002',
-    sysCap: 'B',
-    addresses: ['10.10.10.12', 'FE80::12']
-  })
   table.draw()
   $('#neighbor_search').on('keyup', function () {
     table.search($(this).val()).draw()

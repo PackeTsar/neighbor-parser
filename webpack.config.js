@@ -6,6 +6,11 @@ const config = {
   output: {
     path: path.resolve(__dirname, 'dist/static/neighbors/'),
     filename: 'bundle.js'
+  },
+  devServer: {
+    static: {
+      directory: path.join(__dirname, 'dist')
+    }
   }
 }
 

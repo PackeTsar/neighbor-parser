@@ -1,4 +1,5 @@
 module.exports = {
+  root: true,
   env: {
     browser: true,
     commonjs: true
@@ -15,7 +16,7 @@ module.exports = {
   overrides: [
     {
       files: [
-        "**/*.js"
+        '**/*.js'
       ],
       env: {
         jest: true

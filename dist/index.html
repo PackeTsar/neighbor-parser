@@ -9,6 +9,13 @@
     <link href="static/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
     <link href="static/DataTables/datatables.min.css" rel="stylesheet" />
     <link href="static/fontawesome/css/all.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="static/JointJS/dist/joint.css" />
+    <script src="static/JQuery/jquery-3.6.4.min.js"></script>
+    <script src="static/Lodash/lodash.min.js"></script>
+    <script src="static/Backbone/backbone-min.js"></script>
+    <script src="static/Dagre/dagre.min.js"></script>
+    <script src="static/Dagre/graphlib.min.js"></script>
+    <script src="static/JointJS/dist/joint.js"></script>
   </head>
   <body>
 
@@ -668,6 +675,23 @@ SW2#</textarea>
             <div class="row">
               <div class="col-xl"></div>
               <div class="col d-flex align-items-center justify-content-center">
+                <span class="h5 mb-0 text-center"><i class="fa-solid fa-diagram-project me-2"></i>Diagram</span>
+              </div>
+              <div class="col-xl"></div>
+            </div>
+          </div>
+        </div>
+        <div class="card-body" id="diagram_wrapper">
+          <div id="diagram"></div>
+        </div>
+      </div>
+
+      <div class="card mt-5 mb-5">
+        <div class="card-header">
+          <div class="container">
+            <div class="row">
+              <div class="col-xl"></div>
+              <div class="col d-flex align-items-center justify-content-center">
                 <span class="h5 mb-0 text-center"><i class="fa-solid fa-table me-2"></i>Neighbors</span>
               </div>
               <div class="col-xl col-12 text-end mt-xl-0 mt-3 p-0">
@@ -694,8 +718,10 @@ SW2#</textarea>
                   <th scope="col">#</th>
                   <th scope="col">Type</th>
                   <th scope="col">Local Interface</th>
+                  <th scope="col">Local Interface Short</th>
                   <th scope="col">Name</th>
                   <th scope="col">Remote Interface</th>
+                  <th scope="col">Remote Interface Short</th>
                   <th scope="col">Remote Interface ID</th>
                   <th scope="col">Platform</th>
                   <th scope="col">Description</th>
@@ -716,7 +742,7 @@ SW2#</textarea>
         <div class="container">
             <ul class="navbar-nav ms-auto flex-nowrap">
                 <li class="nav-item me-4">
-                    <span class="navbar-text">v1.3.0</span>
+                    <span class="navbar-text">v1.4.0</span>
                 </li>
                 <li class="nav-item me-4">
                     <a class="navbar-text" href="neighbor-parser-dist.zip" title="Download offline copy of website" data-bs-toggle="tooltip"><i class="fa-solid fa-cloud-arrow-down fa-lg"></i></a>

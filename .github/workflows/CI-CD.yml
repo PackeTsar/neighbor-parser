@@ -1,13 +1,10 @@
 name: CI/CD
-on:
-  push:
-    branches:
-      - main
+on: push
 jobs:
   Test-Lint:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: Install general dependencies
       run: npm install --include=dev
     - name: Install c8
@@ -21,8 +18,9 @@ jobs:
   Build-Deploy:
     runs-on: ubuntu-latest
     needs: Test-Lint
+    if: github.ref == 'refs/heads/main'
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: Delete dist code
       run: rm -f dist/static/neighbors/bundle.js
     - name: Generate dist code
