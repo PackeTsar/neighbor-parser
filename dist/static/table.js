@@ -53,21 +53,29 @@ $(document).ready(function () {
         extend: 'copyHtml5',
         title: null,
         text: '<i class="fa-regular fa-copy"></i>',
-        titleAttr: 'Copy table to clipboard'
+        titleAttr: 'Copy table to clipboard',
+        className: 'btn-sm'
       },
       {
         extend: 'csvHtml5',
         text: '<i class="fa-solid fa-download"></i>',
-        titleAttr: 'Download CSV file of neighbors'
+        titleAttr: 'Download CSV file of neighbors',
+        className: 'btn-sm'
       },
       {
         extend: 'colvis',
         text: '<i class="fa-solid fa-gear"></i>',
-        titleAttr: 'Show/hide columns'
+        titleAttr: 'Show/hide columns',
+        className: 'btn-sm'
       }
     ]
   }).container().appendTo($('#control_buttons'))
   table.draw()
+  const btngrp = $('.dt-buttons')
+  btngrp.addClass('btn-group-sm')
+  const buttons = btngrp.find('button')
+  buttons.removeClass('btn-secondary')
+  buttons.addClass('btn-outline-secondary')
   $('#neighbor_search').on('keyup', function () {
     table.search($(this).val()).draw()
   })
