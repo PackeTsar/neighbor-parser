@@ -5,9 +5,11 @@ const cdpNxos = require('./samples/cdpshort_nxos')
 const lldpIos = require('./samples/lldpshort_ios')
 const lldpIosxe = require('./samples/lldpshort_iosxe')
 const lldpNxos = require('./samples/lldpshort_nxos')
+const cdpIosNoBottom = require('./samples/cdpshort_ios_no_bottom')
 
 const sampleArray = [
   cdpIos,
+  cdpIosNoBottom,
   cdpIosxe,
   cdpNxos,
   lldpIos,
@@ -24,7 +26,7 @@ function hasTopExtra (block) {
 }
 
 function hasBottomExtra (block) {
-  if (block.match(/displayed[ ]?: [0-9]+/)) {
+  if (block.match(/(displayed[ ]?: [0-9]+|\S+(#|>))/)) {
     return true
   } else {
     return false
@@ -42,14 +44,14 @@ test('Trim and check a short CDP table', () => {
 })
 
 test('Trim and parse CDP tables', () => {
-  sampleArray.slice(0, 3).forEach(function (sample) {
+  sampleArray.slice(0, 4).forEach(function (sample) {
     const neighbors = attribs.cdpParseTable(sample.sample)
     expect(neighbors).toStrictEqual(sample.structured)
   })
 })
 
 test('Trim and parse LLDP tables', () => {
-  sampleArray.slice(3).forEach(function (sample) {
+  sampleArray.slice(4).forEach(function (sample) {
     const neighbors = attribs.lldpParseTable(sample.sample)
     expect(neighbors).toStrictEqual(sample.structured)
   })

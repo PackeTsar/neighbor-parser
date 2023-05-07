@@ -19,13 +19,16 @@ function getShortBlocks (block) {
     - Match "Intf" or "Intrfce" right after "Local"
     - Match (non-greedy) anything except a new line up until "Port ID"
       - "Port ID" is the last column in the header
+      - Optionally match whitespace after "Port ID"
     - Match a single newline after "Port ID", then next character must be
         something other than a newline
     - Non-greedily match all characters until either:
       1. "Total entries displayed" is encountered, or
       2. "Total cdp entries displayed" is encountered
+      3. The device prompt (non-whtespace) is enountered ending
+             with a "#" or a ">"
   */
-  return block.match(/Device( |-)ID[ ]*Local Int(r)?f(ce)?[^\n]*?Port ID[ ]*\n[^\n].*?Total (cdp )?entries displayed/gs)
+  return block.match(/Device( |-)ID[ ]*Local Int(r)?f(ce)?[^\n]*?Port ID[ ]*\n[^\n].*?(Total (cdp )?entries displayed|\S+(#|>))/gs)
 };
 
 function insertDelineators (block) {

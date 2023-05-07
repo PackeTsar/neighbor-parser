@@ -15,8 +15,9 @@ function trimTable (block) {
   trimmed = trimmed.replace(/\n[ ]{4}/gs, '')
   // Remove header row
   trimmed = trimmed.replace(/Device( |-)ID.*?Port ID\n/gs, '')
-  // Remove trailing data
-  trimmed = trimmed.replace(/[\n]*Total (cdp )?entries displayed.*/gs, '')
+  // Remove trailing data ("Total" line or prompt)
+  trimmed = trimmed.replace(
+    /[\n]*(Total (cdp )?entries displayed|\S+(#|>)).*/gs, '')
   return trimmed
 }
 
