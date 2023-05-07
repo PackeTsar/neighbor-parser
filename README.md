@@ -27,6 +27,9 @@ If you find a need for a feature and you add it in yourself, or you fix a bug yo
 - Clone repo and nav to `neighbor-parser/`
 - Install dependencies with `npm install --include=dev`
 - Install C8 globally with `npm install c8 -g`
+- Serve website with `npx webpack serve --mode=development`
+  - Browse to http://localhost:8080/
+  - JS exceptions should resolve to real file paths and errors should be helpful
 
 
 ---

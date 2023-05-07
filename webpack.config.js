@@ -4,13 +4,15 @@ const config = {
   entry: './src/index.js',
   mode: 'production',
   output: {
-    path: path.resolve(__dirname, 'dist/static/neighbors/'),
+    path: path.resolve(__dirname, 'dist/'),
     filename: 'bundle.js'
   },
   devServer: {
     static: {
-      directory: path.join(__dirname, 'dist')
-    }
+      directory: path.join(__dirname, 'dist/')
+    },
+    watchFiles: ['*'],
+    hot: true
   }
 }
 
