@@ -17,6 +17,10 @@ const VALUES = [
   {
     original: '1234 mgmt0',
     short: '1234 mgmt0'
+  },
+  {
+    original: null,
+    short: null
   }
 ]
 

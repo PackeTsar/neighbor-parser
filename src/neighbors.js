@@ -6,6 +6,9 @@ function shorten (intfName) {
   /*
   Create a shortened name for an interface by truncating the alpha characters
   */
+  if (!intfName) { // Return early if the interface name is null
+    return intfName
+  }
   if (intfName.length < 6) { // If the name is already 5 chars or less
     return intfName // Use it, no need to shorten
   }
