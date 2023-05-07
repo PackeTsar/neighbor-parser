@@ -49,5 +49,6 @@ If you find a need for a feature and you add it in yourself, or you fix a bug yo
 ## Release Checklist
 - Bump version (`index.html` and `package.json`)
 - Run tests and lint
+- Compile to bundle: `npx webpack`
 - Commit and push
 - Update Wiki with new version info
