@@ -12,6 +12,11 @@ const VALUES = [
   {
     original: 'mgmt0',
     short: 'mgmt0'
+  },
+  // Leading integers will be ignored and not abbreviated
+  {
+    original: '1234 mgmt0',
+    short: '1234 mgmt0'
   }
 ]
 

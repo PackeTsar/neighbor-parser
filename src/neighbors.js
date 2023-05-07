@@ -11,6 +11,11 @@ function shorten (intfName) {
   }
   // Grab the beginining alpha characters
   const fullAlpha = intfName.match(/^([A-Za-z ]+)/)
+  // If we didn't detect some alpha characters we can abbreviate
+  if (!fullAlpha) {
+    // Then return the whole name
+    return intfName
+  }
   // Swap out the full alpha with just the first two characters
   const result = intfName.replace(fullAlpha[0], fullAlpha[0].slice(0, 2))
   return result

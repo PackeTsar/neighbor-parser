@@ -46,7 +46,7 @@ function cdpParseTable (block) {
       sysCap = sysCapTrimmed.split(' ') // Create the array ['A', 'B'...]
       cleanedRow = cleanedRow.replace(sysCapLong, '')
     }
-    // Grab the localIntf and clean it from the row
+    // Grab the platform and clean it from the row
     const platform = cleanedRow.match(/^[ ]*(\S*)/)
     cleanedRow = cleanedRow.replace(platform[0], '')
     // Add this neighbor to the result
