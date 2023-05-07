@@ -73,5 +73,16 @@ $(document).ready(function () {
     drawNeighbors(graph, paper)
     neighborData.focus()
   })
+  // Set a trigger for clicks on the diagram zoom in/out buttons
+  $('#zoom_in').click(function () {
+    const currentScale = paper.scale()
+    paper.scale(currentScale.sx * 1.1, currentScale.sy * 1.1)
+    this.blur() // Remove focus on button
+  })
+  $('#zoom_out').click(function () {
+    const currentScale = paper.scale()
+    paper.scale(currentScale.sx * 0.9, currentScale.sy * 0.9)
+    this.blur()
+  })
   drawNeighbors(graph, paper, defaultNeighbors.NEIGHBORS)
 })
