@@ -5,12 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="static/favicon.ico">
     <title>Neighbor Parser</title>
-    <link href="static/style.css" rel="stylesheet" />
     <link href="static/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
     <link href="static/DataTables/datatables.min.css" rel="stylesheet" />
     <link href="static/fontawesome/css/all.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="static/JointJS/dist/joint.css" />
+    <link rel="stylesheet" href="static/jquery-ui-1.13.2/jquery-ui.min.css">
+    <link href="static/style.css" rel="stylesheet" />
+    <script src="static/popper/popper.min.js"></script>
+    <script src="static/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="static/JQuery/jquery-3.6.4.min.js"></script>
+    <script src="static/DataTables/datatables.min.js"></script>
+    <script src="static/jquery-ui-1.13.2/jquery-ui.min.js"></script>
     <script src="static/Lodash/lodash.min.js"></script>
     <script src="static/Backbone/backbone-min.js"></script>
     <script src="static/Dagre/dagre.min.js"></script>
@@ -681,8 +686,9 @@ SW2#</textarea>
                 <div class="d-flex justify-content-end">
                   <div class="pe-0">
                     <div class="btn-group btn-group-sm" role="group">
-                      <button type="button" id="zoom_in" class="btn btn-outline-secondary"><i class="fa-solid fa-plus"></i></button>
-                      <button type="button" id="zoom_out" class="btn btn-outline-secondary"><i class="fa-solid fa-minus"></i></button>
+                      <button type="button" class="btn btn-outline-secondary zoom-in"><i class="fa-solid fa-plus"></i></button>
+                      <button type="button" class="btn btn-outline-secondary zoom-out"><i class="fa-solid fa-minus"></i></button>
+                      <button type="button" id="diagram_settings_button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#diagramSettings"><i class="fa-solid fa-gear"></i></button>
                     </div>
                   </div>
                 </div>
@@ -765,9 +771,65 @@ SW2#</textarea>
 
     </div>
 
-    <script src="static/popper/popper.min.js"></script>
-    <script src="static/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="static/DataTables/datatables.min.js"></script>
+    <div class="modal fade" id="diagramSettings" tabindex="-1" aria-labelledby="diagramSettings" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title">Diagram Settings</h2>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p class="h4 text-center">Zoom (<span id="current_zoom">100</span>%)</p>
+            <button type="button" class="btn btn-sm btn-outline-secondary zoom-in"><i class="fa-solid fa-plus me-2"></i>Zoom In</button>
+            <button type="button" class="btn btn-sm btn-outline-secondary zoom-out"><i class="fa-solid fa-minus me-2"></i>Zoom Out</button>
+            <button type="button" class="btn btn-sm btn-outline-secondary zoom-reset">Reset</button>
+            <hr>
+            <p class="h4 text-center">Auto Layout</p>
+            <div class="form-text">Rank Direction</div>
+            <select class="form-select" id="rank_direction" aria-label="Rank Direction">
+              <option selected value="LR">Left to Right</option>
+              <option value="RL">Right to Left</option>
+              <option value="TB">Top to Bottom</option>
+              <option value="BT">Bottom to Top</option>
+            </select>
+            <div class="form-text mt-4">Rank Seperation</div>
+            <div class="row">
+              <div class="col-8">
+                <input type="range" class="form-range" id="rank_separation_slider" min="0" max="100">
+              </div>
+              <div class="col-4">
+                <p><span id="rank_separation">65</span>% Frame</p>
+              </div>
+            </div>
+            <hr>
+            <p class="h4 text-center">Links</p>
+            <div class="form-text">Local Label Position</div>
+            <div class="row">
+              <div class="col-8">
+                <input type="range" class="form-range" id="local_label_slider" min="0" max="100">
+              </div>
+              <div class="col-4">
+                <p><span id="local_label">65</span>% Length</p>
+              </div>
+            </div>
+            <div class="form-text mt-2">Remote Label Position</div>
+            <div class="row">
+              <div class="col-8">
+                <input type="range" class="form-range" id="remote_label_slider" min="0" max="100">
+              </div>
+              <div class="col-4">
+                <p><span id="remote_label">85</span>% Length</p>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" id="apply_diagram_settings">Apply</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <script src="static/copy.js"></script>
     <script src="static/table.js"></script>
     <script src="static/tooltips.js"></script>

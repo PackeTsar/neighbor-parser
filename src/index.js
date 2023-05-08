@@ -39,7 +39,7 @@ function drawNeighbors (graph, paper, useNeighbors) {
 };
 
 $(document).ready(function () {
-  // ########## Diagram
+  // ########## Diagram Initialization
   // Grab the wrapper for the diagram
   const diagramDiv = $('#diagram_wrapper')[0]
   // Build the graph and paper objects
@@ -56,6 +56,8 @@ $(document).ready(function () {
     }
   })
   ro.observe(diagramDiv)
+  //
+  //
   // ########## Bindings
   // Set a trigger for keyup on the neighborData field
   $('#neighborData').keyup(function () {
@@ -73,16 +75,55 @@ $(document).ready(function () {
     drawNeighbors(graph, paper)
     neighborData.focus()
   })
-  // Set a trigger for clicks on the diagram zoom in/out buttons
-  $('#zoom_in').click(function () {
+  //
+  //
+  // ########## Diagram Settings
+  $('.modal-dialog').draggable() // Set the modal as draggable
+  // Set triggers for clicks on the diagram zoom in/out buttons
+  $('.zoom-in').click(function () {
     const currentScale = paper.scale()
     paper.scale(currentScale.sx * 1.1, currentScale.sy * 1.1)
+    $('#current_zoom').html(Math.round(paper.scale().sx * 100))
     this.blur() // Remove focus on button
   })
-  $('#zoom_out').click(function () {
+  $('.zoom-out').click(function () {
     const currentScale = paper.scale()
     paper.scale(currentScale.sx * 0.9, currentScale.sy * 0.9)
+    $('#current_zoom').html(Math.round(paper.scale().sx * 100))
+    this.blur() // Unfocus from button
+  })
+  // Set triggers for clicks on the diagram zoom reset button
+  $('.zoom-reset').click(function () {
+    paper.scale(1, 1) // Set the default 100%
+    $('#current_zoom').html(Math.round(paper.scale().sx * 100))
     this.blur()
   })
+  // Set trigger for settings apply button
+  $('#apply_diagram_settings').click(function () {
+    diagram.layout(graph, paper)
+  })
+  // Set up sync between sliders and their displayed settings
+  const rankSeparation = $('#rank_separation')
+  const rankSeparationSlider = $('#rank_separation_slider')
+  rankSeparationSlider.val(rankSeparation.html())
+  rankSeparationSlider.on('input', function () {
+    rankSeparation.html($(this).val())
+  })
+  const localLabel = $('#local_label')
+  const localLabelSlider = $('#local_label_slider')
+  localLabelSlider.val(localLabel.html())
+  localLabelSlider.on('input', function () {
+    localLabel.html($(this).val())
+  })
+  const remoteLabel = $('#remote_label')
+  const remoteLabelSlider = $('#remote_label_slider')
+  remoteLabelSlider.val(remoteLabel.html())
+  remoteLabelSlider.on('input', function () {
+    remoteLabel.html($(this).val())
+  })
+  //
+  //
+  // ########## Lastly
+  // Draw the default neighbors
   drawNeighbors(graph, paper, defaultNeighbors.NEIGHBORS)
 })

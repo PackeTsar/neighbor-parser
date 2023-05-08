@@ -125,15 +125,19 @@ function layout (graph, paper) {
   /*
   Automatically adjust the layout of the elements on the paper
   */
-  // Get a distance for the rank seperation of the graph by calculating 65% of
+  // Get the rank direction setting
+  const rankDir = $('#rank_direction').val()
+  // Get the rank separation setting
+  const rankSepSetting = parseInt($('#rank_separation').html()) / 100
+  // Get a distance for the rank seperation of the graph by calculating N% of
   //   the width of the wrapper container.
-  const newRankSep = $('#diagram_wrapper').width() * 0.65
+  const rankSep = $('#diagram_wrapper').width() * rankSepSetting
   // Perform a directed graph layout
   joint.layout.DirectedGraph.layout(graph, {
     marginX: 10,
     marginY: 10,
-    rankSep: newRankSep, // Set the seperation of the ranks
-    rankDir: 'LR' // Use left-to-right ranking
+    rankSep, // Set the seperation of the ranks
+    rankDir // Set the ranking ranking
   })
   // Adjust the paper size to the current content
   paper.fitToContent()
@@ -152,9 +156,29 @@ function layout (graph, paper) {
     graph.selfNeighbor,
     { outbound: true }
   )
-  // Iterate each link to find siblings and separate them appropriately using
-  //   the multipleLinks.adjustVertices function.
+  // Get the values of the label distance sliders
+  const localLabelDistance = parseInt($('#local_label').html()) / 100
+  const remoteLabelDistance = parseInt($('#remote_label').html()) / 100
+  // Iterate each link to:
+  //     1. Set the label distances from the local/remote devices
+  //     2. Find siblings and separate them appropriately using the
+  //            multipleLinks.adjustVertices function.
   outboundLinks.forEach((link) => {
+    // Loop once for each link label on this link, use an index because in
+    //     order to update the labels, we have to call link.label(n, {}) to
+    //     set the label attributes and have them take effect.
+    for (let i = 0; i < link.labels().length; i++) {
+      let distance = 0.5 // Start with a centered distance
+      // If this is the label for the local interface
+      if (link.label(i).device === 'local') {
+        distance = localLabelDistance
+      } else { // Otherwise, this is the label for the remote interface
+        distance = remoteLabelDistance
+      }
+      // Set the distance attribute
+      link.label(i, { position: { distance } })
+    }
+    // Detect and adjust the sibling interfaces
     graph.adjustGraphVertices(link)
   })
 }
@@ -249,7 +273,8 @@ function drawNeighbor (graph, selfNeighbor, neighborObj) {
     },
     position: {
       distance: 0.65
-    }
+    },
+    device: 'local' // Tag for label settings later
   })
   // Add a remote interface label to the link 85% away from the selfNeighbor
   link.appendLabel({
@@ -263,7 +288,8 @@ function drawNeighbor (graph, selfNeighbor, neighborObj) {
     },
     position: {
       distance: 0.85
-    }
+    },
+    device: 'remote'
   })
   // Set the source and target of the link
   link.source(selfNeighbor)
