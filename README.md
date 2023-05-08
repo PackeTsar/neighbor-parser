@@ -40,7 +40,6 @@ If you find a need for a feature and you add it in yourself, or you fix a bug yo
 - Lint with `npx eslint src/`
 - Check for 100% code coverage: `c8 --100 npm test`
 - Generate coverage report: `c8 report --reporter html`
-- Compile to bundle: `npx webpack`
 
 
 ---
