@@ -27,7 +27,8 @@ CDP/LLDP DETAIL FUNCTIONS
 
 // Local Interface
 function cdpLocalIntf (block) {
-  return simpleSearch('(Interface: *)(.*),', block) /* c8 ignore next */
+  // Match everything after "Interface: " except whitespace or a comma
+  return simpleSearch(/(Interface: *)([^\s,]+),?/, block) /* c8 ignore next */
 };
 
 function lldpLocalIntf (block) {
