@@ -127,24 +127,45 @@ $(document).ready(function () {
     $('#current_zoom').html(Math.round(paper.scale().sx * 100))
     diagram.layout(graph, paper)
   })
-  // Set up sync between sliders and their displayed settings
-  const rankSeparation = $('#rank_separation')
-  const rankSeparationSlider = $('#rank_separation_slider')
-  rankSeparationSlider.val(rankSeparation.html())
-  rankSeparationSlider.on('input', function () {
-    rankSeparation.html($(this).val())
+  // Initialize the Rank Separation setting slider
+  const rangeSeparationHandle = $('#rank_separation')
+  $('#rank_separation_range').slider({
+    min: 0,
+    max: 100,
+    value: 65, // Initial value for rank separation
+    slide: function (event, ui) { // When handles are moved
+      rangeSeparationHandle.text(ui.value)
+    },
+    create: function () { // Set handle text when field created
+      rangeSeparationHandle.text($(this).slider('value'))
+    }
   })
-  const localLabel = $('#local_label')
-  const localLabelSlider = $('#local_label_slider')
-  localLabelSlider.val(localLabel.html())
-  localLabelSlider.on('input', function () {
-    localLabel.html($(this).val())
+  // Grab the handles for the Label Positions slider
+  const localLabelHandle = $('#local_label')
+  const remoteLabelHandle = $('#remote_label')
+  // Bring clicked handle to the front when clicked (since they can overlap)
+  localLabelHandle.on('mousedown', function () {
+    this.style.zIndex = '11'
+    remoteLabelHandle[0].style.zIndex = '10'
   })
-  const remoteLabel = $('#remote_label')
-  const remoteLabelSlider = $('#remote_label_slider')
-  remoteLabelSlider.val(remoteLabel.html())
-  remoteLabelSlider.on('input', function () {
-    remoteLabel.html($(this).val())
+  remoteLabelHandle.on('mousedown', function () {
+    this.style.zIndex = '11'
+    localLabelHandle[0].style.zIndex = '10'
+  })
+  // Initialize the Label Positions setting slider
+  $('#label_positions').slider({
+    range: true,
+    min: 0,
+    max: 100,
+    values: [65, 85], // Initial values for label positions
+    slide: function (event, ui) {
+      localLabelHandle.text(ui.values[0])
+      remoteLabelHandle.text(ui.values[1])
+    },
+    create: function () {
+      localLabelHandle.text($(this).slider('values')[0])
+      remoteLabelHandle.text($(this).slider('values')[1])
+    }
   })
   //
   //

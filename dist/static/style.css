@@ -74,3 +74,15 @@ div.highlight button {
   border-radius: 5px 5px 5px;
   padding: 3px;
 }
+.ui-slider-handle {
+  width: 2em !important;
+  height: 1.6em !important;
+  top: 50% !important;
+  margin-top: -.8em;
+  text-align: center;
+  background-color: #0c6efd !important;
+  color: white !important; 
+}
+.ui-slider-range {
+  background-color: white !important;
+}

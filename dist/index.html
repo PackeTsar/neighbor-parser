@@ -16,6 +16,7 @@
     <script src="static/JQuery/jquery-3.6.4.min.js"></script>
     <script src="static/DataTables/datatables.min.js"></script>
     <script src="static/jquery-ui-1.13.2/jquery-ui.min.js"></script>
+    <script src="static/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js"></script>
     <script src="static/Lodash/lodash.min.js"></script>
     <script src="static/Backbone/backbone-min.js"></script>
     <script src="static/Dagre/dagre.min.js"></script>
@@ -92,7 +93,7 @@
                     <ul>
                       <li class="mb-2"><span>Dragging the columns to re-order them</span></li>
                       <li class="mb-2"><span>Adding/removing columns using the <button type="button" class="btn btn-sm btn-outline-secondary"><i class="fa-solid fa-gear"></i></button> button</span></li>
-                      <li class="mb-2"><span>Clicking the <button type="button" class="btn btn-sm btn-outline-secondary"><i class="fa-regular fa-copy"></i></button> button to copy tab-seperated data (ready to paste into a spreadsheet) to your clipboard</span></li>
+                      <li class="mb-2"><span>Clicking the <button type="button" class="btn btn-sm btn-outline-secondary"><i class="fa-regular fa-copy"></i></button> button to copy tab-separated data (ready to paste into a spreadsheet) to your clipboard</span></li>
                       <li class="mb-2"><span>Clicking the <button type="button" class="btn btn-sm btn-outline-secondary"><i class="fa-solid fa-download"></i></button> button to download a CSV of the neighbor table</span></li>
                     </ul>
                   </li>
@@ -804,33 +805,29 @@ SW2#</textarea>
               <option value="TB">Top to Bottom</option>
               <option value="BT">Bottom to Top</option>
             </select>
-            <div class="form-text mt-4">Rank Seperation</div>
+            <div class="form-text mt-4 mb-2">Rank Separation</div>
             <div class="row">
-              <div class="col-8">
-                <input type="range" class="form-range" id="rank_separation_slider" min="0" max="100">
+              <div class="col-11">
+                <div id="rank_separation_range">
+                  <div id="rank_separation" class="ui-slider-handle"></div>
+                </div>
               </div>
-              <div class="col-4">
-                <p><span id="rank_separation">65</span>% Frame</p>
+              <div class="col-1" style="margin-top: -.4em;">
+                <i class="fa-solid fa-circle-info text-primary" data-bs-toggle="tooltip" data-bs-html="true" title="Separation of device<br>groups as a percentage<br>of frame width"></i>
               </div>
             </div>
             <hr>
             <p class="h4 text-center">Links</p>
-            <div class="form-text">Local Label Position</div>
+            <div class="form-text mb-2">Label Positions</div>
             <div class="row">
-              <div class="col-8">
-                <input type="range" class="form-range" id="local_label_slider" min="0" max="100">
+              <div class="col-11">
+                <div id="label_positions">
+                  <div id="local_label" class="ui-slider-handle"></div>
+                  <div id="remote_label" class="ui-slider-handle"></div>
+                </div>
               </div>
-              <div class="col-4">
-                <p><span id="local_label">65</span>% Length</p>
-              </div>
-            </div>
-            <div class="form-text mt-2">Remote Label Position</div>
-            <div class="row">
-              <div class="col-8">
-                <input type="range" class="form-range" id="remote_label_slider" min="0" max="100">
-              </div>
-              <div class="col-4">
-                <p><span id="remote_label">85</span>% Length</p>
+              <div class="col-1" style="margin-top: -.4em;">
+                <i class="fa-solid fa-circle-info text-primary" data-bs-toggle="tooltip" data-bs-html="true" title="Position of labels<br>as a percentage<br>of link length"></i>
               </div>
             </div>
           </div>
