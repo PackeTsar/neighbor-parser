@@ -68,3 +68,9 @@ div.highlight button {
   width: max-content !important;
   text-align: left;
   }
+.header-reference {
+  border: 1px solid gray;
+  background-color: #f7f7f7;
+  border-radius: 5px 5px 5px;
+  padding: 3px;
+}
