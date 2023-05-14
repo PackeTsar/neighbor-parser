@@ -86,12 +86,14 @@ $(document).ready(function () {
     const currentScale = paper.scale()
     paper.scale(currentScale.sx * 1.1, currentScale.sy * 1.1)
     $('#current_zoom').html(Math.round(paper.scale().sx * 100))
+    $('#new_zoom').html(Math.round(paper.scale().sx * 100))
     this.blur() // Remove focus on button
   })
   $('.zoom-out').click(function () {
     const currentScale = paper.scale()
     paper.scale(currentScale.sx * 0.9, currentScale.sy * 0.9)
     $('#current_zoom').html(Math.round(paper.scale().sx * 100))
+    $('#new_zoom').html(Math.round(paper.scale().sx * 100))
     this.blur() // Unfocus from button
   })
   // Grab the new zoom setting element
