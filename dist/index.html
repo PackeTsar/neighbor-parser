@@ -789,10 +789,12 @@ SW2#</textarea>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <p class="h4 text-center">Zoom (<span id="current_zoom">100</span>%)</p>
-            <button type="button" class="btn btn-sm btn-outline-secondary zoom-in"><i class="fa-solid fa-plus me-2"></i>Zoom In</button>
-            <button type="button" class="btn btn-sm btn-outline-secondary zoom-out"><i class="fa-solid fa-minus me-2"></i>Zoom Out</button>
-            <button type="button" class="btn btn-sm btn-outline-secondary zoom-reset">Reset</button>
+            <p class="h4 text-center">Zoom</p>
+            <span><p>Current: <span class="badge bg-secondary"><span id="current_zoom">100</span>%</span><span class="mx-2">&#8226;</span>New: <span class="badge bg-secondary"><span id="new_zoom">100</span>%</span></p>
+            <button type="button" class="btn btn-sm btn-outline-secondary zoom-in-stage"><i class="fa-solid fa-plus me-2"></i>In</button>
+            <button type="button" class="btn btn-sm btn-outline-secondary zoom-out-stage"><i class="fa-solid fa-minus me-2"></i>Out</button>
+            <button type="button" class="btn btn-sm btn-outline-secondary zoom-reset-current-stage">Reset to Current</button>
+            <button type="button" class="btn btn-sm btn-outline-secondary zoom-reset-100-stage">Reset to 100%</button>
             <hr>
             <p class="h4 text-center">Auto Layout</p>
             <div class="form-text">Rank Direction</div>

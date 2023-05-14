@@ -92,6 +92,25 @@ $(document).ready(function () {
     $('#current_zoom').html(Math.round(paper.scale().sx * 100))
     this.blur() // Unfocus from button
   })
+  // Grab the new zoom setting element
+  const newZoom = $('#new_zoom')
+  // Set triggers for clicks on the diagram settings zoom buttons
+  $('.zoom-in-stage').click(function () {
+    newZoom.html(Math.round(newZoom.html() * 1.1))
+    this.blur() // Remove focus on button
+  })
+  $('.zoom-out-stage').click(function () {
+    newZoom.html(Math.round(newZoom.html() * 0.9))
+    this.blur() // Unfocus from button
+  })
+  $('.zoom-reset-current-stage').click(function () {
+    newZoom.html($('#current_zoom').html())
+    this.blur() // Unfocus from button
+  })
+  $('.zoom-reset-100-stage').click(function () {
+    newZoom.html('100')
+    this.blur() // Unfocus from button
+  })
   // Set triggers for clicks on the diagram zoom reset button
   $('.zoom-reset').click(function () {
     paper.scale(1, 1) // Set the default 100%
@@ -100,6 +119,10 @@ $(document).ready(function () {
   })
   // Set trigger for settings apply button
   $('#apply_diagram_settings').click(function () {
+    // Scale the paper from the #new_zoom element
+    paper.scale(parseInt(newZoom.html()) / 100, parseInt(newZoom.html()) / 100)
+    // Update the #current_zoom element
+    $('#current_zoom').html(Math.round(paper.scale().sx * 100))
     diagram.layout(graph, paper)
   })
   // Set up sync between sliders and their displayed settings
