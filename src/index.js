@@ -78,7 +78,9 @@ $(document).ready(function () {
   //
   //
   // ########## Diagram Settings
-  $('.modal-dialog').draggable() // Set the modal as draggable
+  $('.modal-dialog').draggable({ // Set the modal as draggable
+    handle: '.modal-header'
+  })
   // Set triggers for clicks on the diagram zoom in/out buttons
   $('.zoom-in').click(function () {
     const currentScale = paper.scale()
