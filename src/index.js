@@ -129,7 +129,7 @@ $(document).ready(function () {
   })
   // Initialize the Rank Separation setting slider
   const rangeSeparationHandle = $('#rank_separation')
-  $('#rank_separation_range').slider({
+  $('#rank_separation_slider').slider({
     min: 0,
     max: 100,
     value: 65, // Initial value for rank separation
@@ -153,7 +153,7 @@ $(document).ready(function () {
     localLabelHandle[0].style.zIndex = '10'
   })
   // Initialize the Label Positions setting slider
-  $('#label_positions').slider({
+  $('#label_positions_slider').slider({
     range: true,
     min: 0,
     max: 100,
@@ -165,6 +165,19 @@ $(document).ready(function () {
     create: function () {
       localLabelHandle.text($(this).slider('values')[0])
       remoteLabelHandle.text($(this).slider('values')[1])
+    }
+  })
+  // Initialize the Sibling Gap setting slider
+  const siblingGapHandle = $('#sibling_gap')
+  $('#sibling_gap_slider').slider({
+    min: 0,
+    max: 100,
+    value: 30, // Initial value for sibling gap
+    slide: function (event, ui) {
+      siblingGapHandle.text(ui.value)
+    },
+    create: function () {
+      siblingGapHandle.text($(this).slider('value'))
     }
   })
   //

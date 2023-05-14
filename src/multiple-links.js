@@ -1,3 +1,4 @@
+/* global $ */
 /* global _ */
 /* global joint */
 /* global g */
@@ -72,7 +73,8 @@ function adjustVertices (graph, cell) {
       const theta = sourceCenter.theta(targetCenter)
       // constant
       // the maximum distance between two sibling links
-      const GAP = 30
+      // Should be an integer like 30
+      const GAP = parseInt($('#sibling_gap').html())
       _.each(siblings, function (sibling, index) {
         // we want offset values to be calculated as 0, 20, 20, 40, 40, 60, 60 ...
         let offset = GAP * Math.ceil(index / 2)

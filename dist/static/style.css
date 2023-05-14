@@ -83,6 +83,6 @@ div.highlight button {
   background-color: #0c6efd !important;
   color: white !important; 
 }
-.ui-slider-range {
-  background-color: white !important;
+.ui-slider {
+  background-color: rgb(245, 245, 245) !important;
 }
