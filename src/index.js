@@ -38,6 +38,36 @@ function drawNeighbors (graph, paper, useNeighbors) {
   tooltipToggled.tooltip()
 };
 
+function saveSvg (svgEl, name) {
+  /*
+  Download the diagram as a SVG file
+  */
+  // Get the SVG HTML data
+  let svgData = svgEl.outerHTML
+  // Clean the HTML tootltips out of the SVG HTML
+  svgData = svgData.replace(/data-bs-title=".*?"/gm, '')
+  // Add XML data for SVG document and create a blob
+  const preface = '<?xml version="1.0" standalone="no"?>\r\n'
+  const svgBlob = new Blob(
+    [preface, svgData],
+    { type: 'image/svg+xml;charset=utf-8' }
+  )
+  // Create a download URL for the SVG file
+  const svgUrl = URL.createObjectURL(svgBlob)
+  // Create a link for the download
+  const downloadLink = document.createElement('a')
+  // Set the URL for the download link
+  downloadLink.href = svgUrl
+  // Set the file name
+  downloadLink.download = name
+  // Add the download link to the document
+  document.body.appendChild(downloadLink)
+  // Simulate a click on the link
+  downloadLink.click()
+  // Remove the link from the document
+  document.body.removeChild(downloadLink)
+}
+
 $(document).ready(function () {
   // ########## Diagram Initialization
   // Grab the wrapper for the diagram
@@ -95,6 +125,10 @@ $(document).ready(function () {
     $('#current_zoom').html(Math.round(paper.scale().sx * 100))
     $('#new_zoom').html(Math.round(paper.scale().sx * 100))
     this.blur() // Unfocus from button
+  })
+  // Set trigger for SVG download
+  $('#download_diagram_button').click(function () {
+    saveSvg(paper.svg, 'Neighbor Parser.svg')
   })
   // Grab the new zoom setting element
   const newZoom = $('#new_zoom')
