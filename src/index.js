@@ -36,28 +36,26 @@ function drawNeighbors (graph, paper, useNeighbors) {
   // Activate the tooltips on the neighbor elements
   const tooltipToggled = $('[data-bs-toggle="diagram-tooltip"]')
   tooltipToggled.tooltip()
-};
+}
 
 function saveSvg (svgEl, name) {
   /*
   Download the diagram as a SVG file
   */
-  // Get the SVG HTML data
-  let svgData = svgEl.outerHTML
-  // Clean the HTML tootltips out of the SVG HTML
+  // Serialize the SVG HTML data
+  let svgData = new XMLSerializer().serializeToString(svgEl)
+  // Clean the HTML tootltips out of the SVG data
   svgData = svgData.replace(/data-bs-title=".*?"/gm, '')
-  // Add XML data for SVG document and create a blob
-  const preface = '<?xml version="1.0" standalone="no"?>\r\n'
-  const svgBlob = new Blob(
-    [preface, svgData],
-    { type: 'image/svg+xml;charset=utf-8' }
-  )
+  // Build the base64 SVG image data
+  const image64 = 'data:image/svg+xml;base64,' + window.btoa(svgData)
   // Create a download URL for the SVG file
-  const svgUrl = URL.createObjectURL(svgBlob)
+  const img = document.createElement('img')
+  // Set the source for the image to the base64 image data
+  img.src = image64
   // Create a link for the download
   const downloadLink = document.createElement('a')
   // Set the URL for the download link
-  downloadLink.href = svgUrl
+  downloadLink.href = image64
   // Set the file name
   downloadLink.download = name
   // Add the download link to the document
@@ -128,7 +126,7 @@ $(document).ready(function () {
   })
   // Set trigger for SVG download
   $('#download_diagram_button').click(function () {
-    saveSvg(paper.svg, 'Neighbor Parser.svg')
+    saveSvg(paper.svg, 'Neighbor_Parser.svg')
   })
   // Grab the new zoom setting element
   const newZoom = $('#new_zoom')
