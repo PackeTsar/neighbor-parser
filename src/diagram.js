@@ -104,6 +104,27 @@ function makePaper (element) {
       useLinkTools: false
     }
   })
+  
+  // panning functionality
+  var dragStartPosition = null;
+  paper.on("blank:pointerdown", function (evt, x, y) {
+    var scale = paper.scale()
+    
+    dragStartPosition = { x: x * scale.sx, y: y * scale.sy };
+  })
+
+  paper.on("cell:pointerup blank:pointerup", function (cellView, x, y) {
+      dragStartPosition = null;
+  })
+
+  $("#diagram").mousemove(function (event) {
+    if (dragStartPosition != null) {
+        paper.translate(
+            event.offsetX - dragStartPosition.x,
+            event.offsetY - dragStartPosition.y);
+    }
+  });
+  
   // Create a adjustGraphVertices() function to wrap the
   //   multipleLinks.adjustVertices function.
   // The new adjustGraphVertices() function automatically passes in the graph
