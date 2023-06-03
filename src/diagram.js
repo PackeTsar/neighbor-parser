@@ -104,6 +104,62 @@ function makePaper (element) {
       useLinkTools: false
     }
   })
+  // ########## Add paper panning functionality
+  let dragStartPosition = null // Initialize the drag position
+  // When mouse clicks on empty area (not a cell)
+  paper.on('blank:pointerdown', function (evt, x, y) {
+    // Set the start position for dragging/translating the paper
+    const scale = paper.scale()
+    dragStartPosition = { x: x * scale.sx, y: y * scale.sy }
+  })
+  // When the mouse click lets up, reset the drag position
+  paper.on('cell:pointerup blank:pointerup', function (cellView, x, y) {
+    dragStartPosition = null
+  })
+  // When the mouse moves across the paper
+  $('#diagram').on('mousemove touchmove', function (event) {
+    // If the drag position has been set, then mouse is clicked on and
+    //     holding a blank area of the paper.
+    if (dragStartPosition != null) {
+      // The target element needs to be detected so if a touchmove event moves
+      //     outside the svg element, it will not break the diagram.
+      // Initialize the target element tag as a SVG type
+      let targetElementTag = 'svg'
+      // If this was a touchmove event, then user is touching screen, not
+      //    clicking mouse.
+      if (event.type === 'touchmove') {
+        // Grab the Touch() object
+        const touch = event.touches[0] || event.changedTouches[0]
+        // Get the current element being touched
+        const realTarget = document.elementFromPoint(
+          touch.clientX,
+          touch.clientY
+        )
+        if (realTarget) { // If the realTarget is not null
+          // Set the tag name. If the user moves touch off of the SVG, this
+          //     will help detect when the user drags outside of the SVG
+          //     element.
+          targetElementTag = realTarget.tagName
+          // Set the offset attributes so they can be used like this was a
+          //     mousemove event.
+          event.offsetX = touch.clientX - realTarget.getBoundingClientRect().x
+          event.offsetY = touch.clientY - realTarget.getBoundingClientRect().y
+        } else { // If the realTarget is null
+          // Nullify the targetElementTag so paper translation won't happen
+          targetElementTag = null
+        }
+      }
+      // Only when the element being touched (if this is a touch event) is the
+      //     svg.
+      if (targetElementTag === 'svg') {
+        // Move the paper in relation to the dragStartPosition
+        paper.translate(
+          event.offsetX - dragStartPosition.x,
+          event.offsetY - dragStartPosition.y
+        )
+      }
+    }
+  })
   // Create a adjustGraphVertices() function to wrap the
   //   multipleLinks.adjustVertices function.
   // The new adjustGraphVertices() function automatically passes in the graph
